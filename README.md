@@ -1,2 +1,2 @@
-# iste-website-
+# iste-website
 WEBSITE FOR ISTE SC CET 2026
