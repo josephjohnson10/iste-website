@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ISTE | Student Chapter</title>
+  <meta name="description" content="ISTE Student Chapter - workshops, hackathons, tech talks and community." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#home">
+        <span class="brand-badge">ISTE</span>
+        <span class="brand-text">Student Chapter</span>
+      </a>
+      <nav class="links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#events">Events</a>
+        <a href="#team">Team</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#join">Join Us</a>
+        <a href="#contact" class="btn btn-sm">Contact</a>
+      </nav>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="pill">Indian Society for Technical Education</p>
+          <h1>Learn. Build.<br />Lead with ISTE.</h1>
+          <p class="muted">Workshops, hackathons, tech talks and peer-led projects — open to all branches and years.</p>
+          <div class="cta-row">
+            <a href="#join" class="btn">Join the Chapter</a>
+            <a href="#events" class="btn btn-ghost">Explore Events</a>
+          </div>
+          <div class="stats">
+            <div><strong id="statMembers">500+</strong><span>Members</span></div>
+            <div><strong>30+</strong><span>Events / year</span></div>
+            <div><strong>15+</strong><span>Core team</span></div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-head">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="hero-card-title">upcoming_event.py</span>
+          </div>
+<pre><code># Flagship hackathon
+event = {
+  "name": "HackNight 2026",
+  "date": "Oct 12-13",
+  "venue": "CSE Block",
+  "prizes": "₹50,000",
+  "team_size": "2-4"
+}
+register(event)</code></pre>
+          <div class="hero-card-foot">
+            <span id="countdown">Registrations open soon</span>
+            <a href="#events" class="link">Details →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <p class="kicker">About</p>
+        <h2>What is ISTE?</h2>
+        <p class="muted max-w">The Indian Society for Technical Education (ISTE) student chapter connects curious engineers through hands-on learning. No prior experience needed — just bring curiosity.</p>
+        <div class="cards-3">
+          <div class="card">
+            <h3>🛠️ Workshops</h3>
+            <p>Web dev, Python, Git, IoT, CAD, resume building and more — beginner-friendly and practical.</p>
+          </div>
+          <div class="card">
+            <h3>💡 Hackathons</h3>
+            <p>Overnight builds, idea sprints and inter-college contests with mentorship and prizes.</p>
+          </div>
+          <div class="card">
+            <h3>🎙️ Tech Talks</h3>
+            <p>Alumni, faculty and industry speakers on careers, higher studies and emerging tech.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="events" class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Events</p>
+            <h2>Upcoming & recent</h2>
+          </div>
+          <div class="filters">
+            <button class="chip active" data-filter="all">All</button>
+            <button class="chip" data-filter="workshop">Workshops</button>
+            <button class="chip" data-filter="hackathon">Hackathons</button>
+            <button class="chip" data-filter="talk">Talks</button>
+          </div>
+        </div>
+        <div class="cards-3" id="eventGrid">
+          <article class="card event" data-type="hackathon">
+            <p class="tag">Hackathon • Oct 12-13</p>
+            <h3>HackNight 2026</h3>
+            <p>24-hour flagship hackathon. Build in teams, demo to judges, win prizes.</p>
+            <button class="btn btn-sm" data-register="HackNight 2026">Register</button>
+          </article>
+          <article class="card event" data-type="workshop">
+            <p class="tag">Workshop • Sep 20</p>
+            <h3>Web Dev Bootcamp</h3>
+            <p>HTML, CSS, JS + deploy your first site. Laptops required.</p>
+            <button class="btn btn-sm" data-register="Web Dev Bootcamp">Register</button>
+          </article>
+          <article class="card event" data-type="workshop">
+            <p class="tag">Workshop • Sep 28</p>
+            <h3>Python & Git Zero-to-Hero</h3>
+            <p>Python basics + GitHub workflow for first-year students.</p>
+            <button class="btn btn-sm" data-register="Python & Git Zero-to-Hero">Register</button>
+          </article>
+          <article class="card event" data-type="talk">
+            <p class="tag">Talk • Oct 05</p>
+            <h3>Cracking Internships</h3>
+            <p>Seniors + alumni share resumes, DSA prep and cold-mailing tips.</p>
+            <button class="btn btn-sm" data-register="Cracking Internships">Register</button>
+          </article>
+          <article class="card event" data-type="hackathon">
+            <p class="tag">Contest • Nov 02</p>
+            <h3>Idea Sprint</h3>
+            <p>Pitch + prototype in 6 hours. Best for first-timers.</p>
+            <button class="btn btn-sm" data-register="Idea Sprint">Register</button>
+          </article>
+          <article class="card event" data-type="talk">
+            <p class="tag">Talk • Nov 16</p>
+            <h3>AI in 2026</h3>
+            <p>LLMs, agents and careers — what to learn now.</p>
+            <button class="btn btn-sm" data-register="AI in 2026">Register</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="section">
+      <div class="container">
+        <p class="kicker">Team</p>
+        <h2>Core committee 2025-26</h2>
+        <p class="muted">Edit names in <code>index.html</code> to customize.</p>
+        <div class="cards-4">
+          <div class="card person"><div class="avatar">PC</div><h3>President</h3><p>Chairperson</p></div>
+          <div class="card person"><div class="avatar">VP</div><h3>Vice President</h3><p>Operations</p></div>
+          <div class="card person"><div class="avatar">GS</div><h3>General Secretary</h3><p>Events</p></div>
+          <div class="card person"><div class="avatar">TR</div><h3>Treasurer</h3><p>Finance</p></div>
+          <div class="card person"><div class="avatar">TD</div><h3>Tech Lead</h3><p>Web & Tools</p></div>
+          <div class="card person"><div class="avatar">DS</div><h3>Design Lead</h3><p>Creatives</p></div>
+          <div class="card person"><div class="avatar">MK</div><h3>Marketing</h3><p>Outreach</p></div>
+          <div class="card person"><div class="avatar">EM</div><h3>Event Manager</h3><p>Logistics</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section alt">
+      <div class="container">
+        <p class="kicker">Gallery</p>
+        <h2>Moments</h2>
+        <div class="gallery-grid">
+          <div class="ph">HackNight '25</div>
+          <div class="ph">Web Bootcamp</div>
+          <div class="ph">Tech Talk</div>
+          <div class="ph">Idea Sprint</div>
+          <div class="ph">Team Meetup</div>
+          <div class="ph">Award Night</div>
+        </div>
+        <p class="muted small">Replace <code>.ph</code> divs with <code>&lt;img&gt;</code> tags when you have photos.</p>
+      </div>
+    </section>
+
+    <section id="join" class="section">
+      <div class="container join-grid">
+        <div>
+          <p class="kicker">Join Us</p>
+          <h2>Become a member in 2 minutes</h2>
+          <ul class="ticks">
+            <li>✓ Open to all years & branches</li>
+            <li>✓ Certificates for workshops & volunteering</li>
+            <li>✓ Priority seats in hackathons</li>
+          </ul>
+        </div>
+        <form class="card form" id="joinForm">
+          <label>Name<input required name="name" placeholder="Your full name" /></label>
+          <label>Email<input required type="email" name="email" placeholder="you@college.edu" /></label>
+          <label>Branch / Year
+            <select name="branch">
+              <option>CSE - 1st Year</option>
+              <option>CSE - 2nd Year</option>
+              <option>ECE</option>
+              <option>EEE</option>
+              <option>Mech / Civil</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label>Interest
+            <select name="interest">
+              <option>Web Dev</option>
+              <option>AI / ML</option>
+              <option>Design</option>
+              <option>Event Management</option>
+              <option>Marketing</option>
+            </select>
+          </label>
+          <button class="btn" type="submit">Submit Application</button>
+          <p class="muted small" id="joinMsg">Stored locally in your browser (demo). Connect a backend / Google Form later.</p>
+        </form>
+      </div>
+    </section>
+
+    <section id="contact" class="section alt">
+      <div class="container contact-grid">
+        <div>
+          <p class="kicker">Contact</p>
+          <h2>Reach us</h2>
+          <p class="muted">Email: <a href="mailto:iste@college.edu">iste@college.edu</a><br />Room 204, CSE Block • Mon-Fri 4-6pm</p>
+          <div class="socials">
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            <a href="#" aria-label="GitHub">GitHub</a>
+            <a href="#" aria-label="YouTube">YouTube</a>
+          </div>
+        </div>
+        <form class="card form" id="contactForm">
+          <label>Name<input required placeholder="Your name" /></label>
+          <label>Message<textarea required rows="4" placeholder="How can we help?"></textarea></label>
+          <button class="btn" type="submit">Send</button>
+          <p class="muted small" id="contactMsg"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <span>© 2026 ISTE Student Chapter. Built with HTML/CSS/JS.</span>
+      <a href="#home" class="link">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
