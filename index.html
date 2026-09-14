@@ -3,24 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ISTE | Student Chapter</title>
-  <meta name="description" content="ISTE Student Chapter - workshops, hackathons, tech talks and community." />
+  <!-- TODO: finalize title + meta copy with the team -->
+  <title>ISTE SC CET — Learn. Build. Lead.</title>
+  <meta name="description" content="ISTE Student Chapter CET — workshops, hackathons, tech talks and community. Base build: design + motion first, content placeholders throughout." />
   <link rel="stylesheet" href="styles.css" />
-</head>
 <body>
+  <!-- Vanta 3D Birds Background -->
+  <div id="vanta-bg" aria-hidden="true"></div>
+
+  <!-- Trailing Bot -->
+  <div id="trailBot" aria-hidden="true">
+    <!-- Sci-fi geometric drone/bot -->
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="16" cy="16" r="10" fill="var(--onyx)" stroke="var(--cobalt)" stroke-width="2"/>
+      <circle cx="16" cy="12" r="3" fill="var(--cobalt)"/> <!-- eye -->
+      <path d="M6 16 L2 12 L2 20 Z" fill="var(--cobalt)"/> <!-- left wing -->
+      <path d="M26 16 L30 12 L30 20 Z" fill="var(--cobalt)"/> <!-- right wing -->
+      <path d="M12 26 L16 32 L20 26 Z" fill="var(--cobalt)"/> <!-- tail -->
+    </svg>
+  </div>
+
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div class="aurora" aria-hidden="true"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
+
   <header class="nav">
     <div class="container nav-inner">
       <a class="brand" href="#home">
         <span class="brand-badge">ISTE</span>
-        <span class="brand-text">Student Chapter</span>
+        <span class="brand-text">Student Chapter <em>CET</em></span>
       </a>
       <nav class="links" id="navLinks">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#events">Events</a>
-        <a href="#team">Team</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#join">Join Us</a>
+        <a href="#home"><span class="cube"><span class="face front">Home</span><span class="face bottom">Home</span></span></a>
+        <a href="#about"><span class="cube"><span class="face front">About</span><span class="face bottom">About</span></span></a>
+        <a href="#events"><span class="cube"><span class="face front">Events</span><span class="face bottom">Events</span></span></a>
+        <a href="#team"><span class="cube"><span class="face front">Team</span><span class="face bottom">Team</span></span></a>
+        <a href="#gallery"><span class="cube"><span class="face front">Gallery</span><span class="face bottom">Gallery</span></span></a>
+        <a href="#faq"><span class="cube"><span class="face front">FAQ</span><span class="face bottom">FAQ</span></span></a>
+        <a href="#join"><span class="cube"><span class="face front">Join Us</span><span class="face bottom">Join Us</span></span></a>
         <a href="#contact" class="btn btn-sm">Contact</a>
       </nav>
       <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
@@ -28,167 +47,241 @@
   </header>
 
   <main>
+    <!-- ================= HERO ================= -->
     <section id="home" class="hero">
+      <div class="spotlight" id="spotlight" aria-hidden="true"></div>
       <div class="container hero-grid">
-        <div>
-          <p class="pill">Indian Society for Technical Education</p>
-          <h1>Learn. Build.<br />Lead with ISTE.</h1>
-          <p class="muted">Workshops, hackathons, tech talks and peer-led projects — open to all branches and years.</p>
-          <div class="cta-row">
+        <div class="hero-copy">
+          <!-- TODO: confirm eyebrow line -->
+          <p class="eyebrow reveal"><span class="pulse-dot"></span>Indian Society for Technical Education · CET Chapter</p>
+          <h1 class="reveal" style="--i:1">Learn. Build.<br /><span class="grad">Lead with ISTE.</span></h1>
+          <!-- TODO: rewrite sub-copy -->
+          <p class="muted reveal" style="--i:2">Workshops, hackathons, tech talks and peer-led projects — open to all branches and years. No experience needed.</p>
+          <div class="cta-row reveal" style="--i:3">
             <a href="#join" class="btn">Join the Chapter</a>
             <a href="#events" class="btn btn-ghost">Explore Events</a>
           </div>
-          <div class="stats">
-            <div><strong id="statMembers">500+</strong><span>Members</span></div>
-            <div><strong>30+</strong><span>Events / year</span></div>
-            <div><strong>15+</strong><span>Core team</span></div>
+          <div class="stats reveal" style="--i:4">
+            <!-- TODO: confirm real numbers -->
+            <div><strong><span class="count" data-count="500">0</span>+</strong><span>Members</span></div>
+            <div><strong><span class="count" data-count="30">0</span>+</strong><span>Events / year</span></div>
+            <div><strong><span class="count" data-count="15">0</span>+</strong><span>Core team</span></div>
           </div>
         </div>
-        <div class="hero-card">
-          <div class="hero-card-head">
-            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-            <span class="hero-card-title">upcoming_event.py</span>
+        <div class="hero-visual reveal" style="--i:2">
+          <span class="orb" style="width:14px;height:14px;left:4%;top:10%"></span>
+          <span class="orb" style="width:9px;height:9px;right:8%;top:36%;animation-delay:-3s"></span>
+          <span class="orb" style="width:12px;height:12px;left:10%;bottom:14%;animation-delay:-5s"></span>
+          <span class="orb" style="width:7px;height:7px;right:20%;bottom:6%;animation-delay:-2s"></span>
+          <div class="launch-panel">
+            <div class="launch-head">
+              <span class="tbd-tag">PLACEHOLDER · flagship event</span>
+              <h3>HackNight 2026</h3>
+              <!-- TODO: confirm date, venue, prizes -->
+              <p class="muted">24-hour flagship hackathon · Oct 12–13 · CSE Block</p>
+            </div>
+            <div class="cd-grid" role="timer" aria-label="Countdown to HackNight">
+              <div class="cd-box"><strong id="cd-d">--</strong><span>days</span></div>
+              <div class="cd-box"><strong id="cd-h">--</strong><span>hrs</span></div>
+              <div class="cd-box"><strong id="cd-m">--</strong><span>min</span></div>
+            </div>
+            <p class="cd-line" id="countdown">Registrations open soon</p>
+            <a href="#events" class="btn btn-block">See all events →</a>
           </div>
-<pre><code># Flagship hackathon
-event = {
-  "name": "HackNight 2026",
-  "date": "Oct 12-13",
-  "venue": "CSE Block",
-  "prizes": "₹50,000",
-  "team_size": "2-4"
-}
-register(event)</code></pre>
-          <div class="hero-card-foot">
-            <span id="countdown">Registrations open soon</span>
-            <a href="#events" class="link">Details →</a>
-          </div>
+          <div class="orbit-chip oc1">🛠️ Workshops</div>
+          <div class="orbit-chip oc2">💡 Hackathons</div>
+          <div class="orbit-chip oc3">🎙️ Talks</div>
         </div>
       </div>
+
     </section>
 
+    <!-- marquee strip: edit words freely -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-set">
+          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>PROJECTS</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
+          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>PROJECTS</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
+          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>PROJECTS</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
+          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>PROJECTS</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
+          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>PROJECTS</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
+        </div>
+        <div class="marquee-set">
+          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>PROJECTS</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
+          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>PROJECTS</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
+          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>PROJECTS</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
+          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>PROJECTS</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
+          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>PROJECTS</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= ABOUT ================= -->
     <section id="about" class="section">
       <div class="container">
-        <p class="kicker">About</p>
-        <h2>What is ISTE?</h2>
-        <p class="muted max-w">The Indian Society for Technical Education (ISTE) student chapter connects curious engineers through hands-on learning. No prior experience needed — just bring curiosity.</p>
-        <div class="cards-3">
-          <div class="card">
-            <h3>🛠️ Workshops</h3>
-            <p>Web dev, Python, Git, IoT, CAD, resume building and more — beginner-friendly and practical.</p>
+        <p class="kicker reveal">About</p>
+        <h2 class="reveal" style="--i:1">What is ISTE?</h2>
+        <!-- TODO: finalize about copy -->
+        <p class="muted max-w reveal" style="--i:2">The ISTE student chapter connects curious engineers through hands-on learning. Just bring curiosity — we handle the rest.</p>
+        <div class="cards-3 stagger">
+          <div class="card lift reveal" style="--i:1">
+            <div class="icon">🛠️</div>
+            <h3>Workshops</h3>
+            <!-- TODO: replace with real workshop tracks -->
+            <p>Placeholder — e.g. web dev, Python, Git, IoT, CAD, resume building. Beginner-friendly and practical.</p>
           </div>
-          <div class="card">
-            <h3>💡 Hackathons</h3>
-            <p>Overnight builds, idea sprints and inter-college contests with mentorship and prizes.</p>
+          <div class="card lift reveal" style="--i:2">
+            <div class="icon">💡</div>
+            <h3>Hackathons</h3>
+            <p>Placeholder — overnight builds, idea sprints and inter-college contests with mentorship and prizes.</p>
           </div>
-          <div class="card">
-            <h3>🎙️ Tech Talks</h3>
-            <p>Alumni, faculty and industry speakers on careers, higher studies and emerging tech.</p>
+          <div class="card lift reveal" style="--i:3">
+            <div class="icon">🎙️</div>
+            <h3>Tech Talks</h3>
+            <p>Placeholder — alumni, faculty and industry speakers on careers, higher studies and emerging tech.</p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ================= EVENTS ================= -->
     <section id="events" class="section alt">
       <div class="container">
         <div class="section-head">
           <div>
-            <p class="kicker">Events</p>
-            <h2>Upcoming & recent</h2>
+            <p class="kicker reveal">Events</p>
+            <h2 class="reveal" style="--i:1">Upcoming &amp; recent</h2>
           </div>
-          <div class="filters">
+          <div class="filters reveal" style="--i:2">
             <button class="chip active" data-filter="all">All</button>
             <button class="chip" data-filter="workshop">Workshops</button>
             <button class="chip" data-filter="hackathon">Hackathons</button>
             <button class="chip" data-filter="talk">Talks</button>
           </div>
         </div>
-        <div class="cards-3" id="eventGrid">
-          <article class="card event" data-type="hackathon">
-            <p class="tag">Hackathon • Oct 12-13</p>
+        <!-- TODO: replace cards with the real event calendar -->
+        <div class="cards-3 stagger" id="eventGrid">
+          <article class="card event lift reveal" data-type="hackathon" style="--i:1">
+            <p class="tag">Hackathon · Oct 12–13</p>
             <h3>HackNight 2026</h3>
             <p>24-hour flagship hackathon. Build in teams, demo to judges, win prizes.</p>
             <button class="btn btn-sm" data-register="HackNight 2026">Register</button>
           </article>
-          <article class="card event" data-type="workshop">
-            <p class="tag">Workshop • Sep 20</p>
+          <article class="card event lift reveal" data-type="workshop" style="--i:2">
+            <p class="tag">Workshop · Sep 20</p>
             <h3>Web Dev Bootcamp</h3>
             <p>HTML, CSS, JS + deploy your first site. Laptops required.</p>
             <button class="btn btn-sm" data-register="Web Dev Bootcamp">Register</button>
           </article>
-          <article class="card event" data-type="workshop">
-            <p class="tag">Workshop • Sep 28</p>
-            <h3>Python & Git Zero-to-Hero</h3>
+          <article class="card event lift reveal" data-type="workshop" style="--i:3">
+            <p class="tag">Workshop · Sep 28</p>
+            <h3>Python &amp; Git Zero-to-Hero</h3>
             <p>Python basics + GitHub workflow for first-year students.</p>
             <button class="btn btn-sm" data-register="Python & Git Zero-to-Hero">Register</button>
           </article>
-          <article class="card event" data-type="talk">
-            <p class="tag">Talk • Oct 05</p>
-            <h3>Cracking Internships</h3>
-            <p>Seniors + alumni share resumes, DSA prep and cold-mailing tips.</p>
-            <button class="btn btn-sm" data-register="Cracking Internships">Register</button>
+          <article class="card skel reveal" style="--i:4" aria-label="Placeholder event">
+            <p class="tag"><span class="tbd-tag">TBD</span></p>
+            <h3>Event title — TBD</h3>
+            <p>Placeholder card. Add date, blurb and registration link here.</p>
+            <button class="btn btn-sm" disabled>Coming soon</button>
           </article>
-          <article class="card event" data-type="hackathon">
-            <p class="tag">Contest • Nov 02</p>
-            <h3>Idea Sprint</h3>
-            <p>Pitch + prototype in 6 hours. Best for first-timers.</p>
-            <button class="btn btn-sm" data-register="Idea Sprint">Register</button>
+          <article class="card skel reveal" style="--i:5" aria-label="Placeholder event">
+            <p class="tag"><span class="tbd-tag">TBD</span></p>
+            <h3>Event title — TBD</h3>
+            <p>Placeholder card. Add date, blurb and registration link here.</p>
+            <button class="btn btn-sm" disabled>Coming soon</button>
           </article>
-          <article class="card event" data-type="talk">
-            <p class="tag">Talk • Nov 16</p>
-            <h3>AI in 2026</h3>
-            <p>LLMs, agents and careers — what to learn now.</p>
-            <button class="btn btn-sm" data-register="AI in 2026">Register</button>
+          <article class="card skel reveal" style="--i:6" aria-label="Placeholder event">
+            <p class="tag"><span class="tbd-tag">TBD</span></p>
+            <h3>Event title — TBD</h3>
+            <p>Placeholder card. Add date, blurb and registration link here.</p>
+            <button class="btn btn-sm" disabled>Coming soon</button>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- ================= TEAM ================= -->
+    <!-- TODO: replace every card with the real 2025-26 roster + photos.
+         Old site roster (verify, names may be outdated): Devika (Chair), Adhin (Vice Chair),
+         Zeeshan (Secretary), Mithravinda (Joint Sec), Avanthika (Treasurer), Kasinath (Tech),
+         Aamira (Events), Anagha (Projects), Shreddha (WiT), Adithya (Publicity), Rida (Registration). -->
     <section id="team" class="section">
       <div class="container">
-        <p class="kicker">Team</p>
-        <h2>Core committee 2025-26</h2>
-        <p class="muted">Edit names in <code>index.html</code> to customize.</p>
-        <div class="cards-4">
-          <div class="card person"><div class="avatar">PC</div><h3>President</h3><p>Chairperson</p></div>
-          <div class="card person"><div class="avatar">VP</div><h3>Vice President</h3><p>Operations</p></div>
-          <div class="card person"><div class="avatar">GS</div><h3>General Secretary</h3><p>Events</p></div>
-          <div class="card person"><div class="avatar">TR</div><h3>Treasurer</h3><p>Finance</p></div>
-          <div class="card person"><div class="avatar">TD</div><h3>Tech Lead</h3><p>Web & Tools</p></div>
-          <div class="card person"><div class="avatar">DS</div><h3>Design Lead</h3><p>Creatives</p></div>
-          <div class="card person"><div class="avatar">MK</div><h3>Marketing</h3><p>Outreach</p></div>
-          <div class="card person"><div class="avatar">EM</div><h3>Event Manager</h3><p>Logistics</p></div>
+        <p class="kicker reveal">Team</p>
+        <h2 class="reveal" style="--i:1">Core committee <span class="grad">2025–26</span></h2>
+        <p class="muted reveal" style="--i:2">Placeholder roster — swap initials, names and roles with the real committee.</p>
+        <div class="cards-4 stagger">
+          <div class="card person lift reveal" style="--i:1"><div class="avatar">??</div><h3>Your Name</h3><p>Role — TBD</p></div>
+          <div class="card person lift reveal" style="--i:2"><div class="avatar">??</div><h3>Your Name</h3><p>Role — TBD</p></div>
+          <div class="card person lift reveal" style="--i:3"><div class="avatar">??</div><h3>Your Name</h3><p>Role — TBD</p></div>
+          <div class="card person lift reveal" style="--i:4"><div class="avatar">??</div><h3>Your Name</h3><p>Role — TBD</p></div>
+          <div class="card person lift reveal" style="--i:5"><div class="avatar">??</div><h3>Your Name</h3><p>Role — TBD</p></div>
+          <div class="card person lift reveal" style="--i:6"><div class="avatar">??</div><h3>Your Name</h3><p>Role — TBD</p></div>
+          <div class="card person lift reveal" style="--i:7"><div class="avatar">??</div><h3>Your Name</h3><p>Role — TBD</p></div>
+          <div class="card person lift reveal" style="--i:8"><div class="avatar">??</div><h3>Your Name</h3><p>Role — TBD</p></div>
         </div>
       </div>
     </section>
 
+    <!-- ================= GALLERY ================= -->
+    <!-- TODO: replace .ph blocks with <img src="..." alt="..."> when photos arrive -->
     <section id="gallery" class="section alt">
       <div class="container">
-        <p class="kicker">Gallery</p>
-        <h2>Moments</h2>
-        <div class="gallery-grid">
-          <div class="ph">HackNight '25</div>
-          <div class="ph">Web Bootcamp</div>
-          <div class="ph">Tech Talk</div>
-          <div class="ph">Idea Sprint</div>
-          <div class="ph">Team Meetup</div>
-          <div class="ph">Award Night</div>
+        <p class="kicker reveal">Gallery</p>
+        <h2 class="reveal" style="--i:1">Moments</h2>
+        <div class="gallery-grid stagger">
+          <div class="ph skel reveal" style="--i:1"><span>Photo — TBD</span></div>
+          <div class="ph skel reveal" style="--i:2"><span>Photo — TBD</span></div>
+          <div class="ph skel reveal" style="--i:3"><span>Photo — TBD</span></div>
+          <div class="ph skel reveal" style="--i:4"><span>Photo — TBD</span></div>
+          <div class="ph skel reveal" style="--i:5"><span>Photo — TBD</span></div>
+          <div class="ph skel reveal" style="--i:6"><span>Photo — TBD</span></div>
         </div>
-        <p class="muted small">Replace <code>.ph</code> divs with <code>&lt;img&gt;</code> tags when you have photos.</p>
       </div>
     </section>
 
+    <!-- ================= FAQ ================= -->
+    <!-- TODO: replace with the real FAQs from the team -->
+    <section id="faq" class="section">
+      <div class="container narrow">
+        <p class="kicker reveal">FAQ</p>
+        <h2 class="reveal" style="--i:1">Questions, <span class="grad">answered.</span></h2>
+        <div class="faq reveal" style="--i:2">
+          <div class="faq-item">
+            <button class="faq-q">Who can join ISTE? <span>+</span></button>
+            <div class="faq-a"><p>Placeholder — any CET student from any branch or year. No prior experience needed.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Do I need to know coding already? <span>+</span></button>
+            <div class="faq-a"><p>Placeholder — no. Beginner tracks start from zero in every workshop series.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">How do I register for HackNight? <span>+</span></button>
+            <div class="faq-a"><p>Placeholder — hit Register on the event card; team formation details go here.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Do members get certificates? <span>+</span></button>
+            <div class="faq-a"><p>Placeholder — yes, for workshops, volunteering and flagship events.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= JOIN ================= -->
     <section id="join" class="section">
       <div class="container join-grid">
         <div>
-          <p class="kicker">Join Us</p>
-          <h2>Become a member in 2 minutes</h2>
-          <ul class="ticks">
-            <li>✓ Open to all years & branches</li>
-            <li>✓ Certificates for workshops & volunteering</li>
+          <p class="kicker reveal">Join Us</p>
+          <h2 class="reveal" style="--i:1">Become a member<br />in <span class="grad">2 minutes.</span></h2>
+          <ul class="ticks reveal" style="--i:2">
+            <li>✓ Open to all years &amp; branches</li>
+            <li>✓ Certificates for workshops &amp; volunteering</li>
             <li>✓ Priority seats in hackathons</li>
           </ul>
+          <!-- TODO: connect a backend or Google Form before launch -->
         </div>
-        <form class="card form" id="joinForm">
+        <form class="card form reveal" style="--i:2" id="joinForm">
           <label>Name<input required name="name" placeholder="Your full name" /></label>
           <label>Email<input required type="email" name="email" placeholder="you@college.edu" /></label>
           <label>Branch / Year
@@ -210,29 +303,33 @@ register(event)</code></pre>
               <option>Marketing</option>
             </select>
           </label>
-          <button class="btn" type="submit">Submit Application</button>
+          <button class="btn btn-block" type="submit">Submit Application</button>
           <p class="muted small" id="joinMsg">Stored locally in your browser (demo). Connect a backend / Google Form later.</p>
         </form>
       </div>
     </section>
 
+    <!-- ================= CONTACT ================= -->
+    <!-- TODO: confirm official email, room, hours and social links.
+         Old site used: iste@cet.ac.in, +91 80865 00369, +91 89213 41291,
+         instagram.com/iste_sc_cet, linkedin.com/company/iste-sc-cet, WhatsApp invite. -->
     <section id="contact" class="section alt">
       <div class="container contact-grid">
         <div>
-          <p class="kicker">Contact</p>
-          <h2>Reach us</h2>
-          <p class="muted">Email: <a href="mailto:iste@college.edu">iste@college.edu</a><br />Room 204, CSE Block • Mon-Fri 4-6pm</p>
-          <div class="socials">
+          <p class="kicker reveal">Contact</p>
+          <h2 class="reveal" style="--i:1">Reach us</h2>
+          <p class="muted reveal" style="--i:2">Email: <a href="mailto:iste@college.edu">iste@college.edu</a> <button class="copy-btn" data-copy="iste@college.edu">Copy</button> <span class="tbd-tag">TBD</span><br />Room 204, CSE Block · Mon–Fri 4–6pm <span class="tbd-tag">TBD</span></p>
+          <div class="socials reveal" style="--i:3">
             <a href="#" aria-label="Instagram">Instagram</a>
             <a href="#" aria-label="LinkedIn">LinkedIn</a>
             <a href="#" aria-label="GitHub">GitHub</a>
             <a href="#" aria-label="YouTube">YouTube</a>
           </div>
         </div>
-        <form class="card form" id="contactForm">
+        <form class="card form reveal" style="--i:2" id="contactForm">
           <label>Name<input required placeholder="Your name" /></label>
           <label>Message<textarea required rows="4" placeholder="How can we help?"></textarea></label>
-          <button class="btn" type="submit">Send</button>
+          <button class="btn btn-block" type="submit">Send</button>
           <p class="muted small" id="contactMsg"></p>
         </form>
       </div>
@@ -241,11 +338,17 @@ register(event)</code></pre>
 
   <footer>
     <div class="container foot">
-      <span>© 2026 ISTE Student Chapter. Built with HTML/CSS/JS.</span>
+      <span>© 2026 ISTE Student Chapter CET · base build</span>
       <a href="#home" class="link">Back to top ↑</a>
     </div>
   </footer>
 
+
+
+  <button id="toTop" aria-label="Back to top">↑</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
