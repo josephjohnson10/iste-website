@@ -1,5 +1,108 @@
-/* ISTE SC CET — base build
-   STYLE ITERATION 4: Mercury (Refero) — "alpine banking at blue hour".
+/* ================= PRELOADER (Drishti Style) ================= */
+#preloader {
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  background: #050505; z-index: 9999;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+  overflow: hidden;
+}
+body.loaded #preloader { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.drishti-intro-container {
+  display: flex; flex-direction: column; align-items: center; gap: 40px;
+  perspective: 1000px;
+}
+
+.drishti-3d-logo {
+  position: relative;
+  width: 240px; height: 240px;
+  transform-style: preserve-3d;
+  animation: drishti-spin 3s linear infinite;
+}
+
+@keyframes drishti-spin {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+.d-logo-layer {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: contain;
+  /* Tech Cobalt tint */
+  filter: drop-shadow(0 0 20px rgba(82, 102, 235, 0.5));
+}
+/* Fake 3D depth by translating layers slightly in Z space */
+.layer-1 { transform: translateZ(-3px); filter: brightness(0.6); }
+.layer-2 { transform: translateZ(-1.5px); filter: brightness(0.8); }
+.layer-3 { transform: translateZ(1.5px); filter: brightness(1); }
+.layer-4 { transform: translateZ(3px); filter: drop-shadow(0 0 30px rgba(82, 102, 235, 0.7)); }
+
+.drishti-intro-text {
+  font-family: 'Outfit', sans-serif; 
+  font-size: clamp(2.5rem, 6vw, 5rem); 
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(82, 102, 235, 0.5);
+  background: linear-gradient(90deg, #5266eb, #8ab4f8, #ffffff, #8ab4f8, #5266eb);
+  -webkit-background-clip: text;
+  background-size: 200% auto;
+  animation: tech-shine 3s linear infinite;
+  text-align: center;
+  letter-spacing: -0.02em;
+  margin: 0 auto;
+}
+
+/* Typing effect */
+.typing-text {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 4px solid #8ab4f8;
+  width: 0;
+  animation: typing 1.5s steps(11, end) forwards, blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #8ab4f8; }
+}
+@keyframes tech-shine {
+  to { background-position: 200% center; }
+}
+
+.drishti-intro-sub {
+  font-size: clamp(0.75rem, 2.5vw, 1.1rem);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-top: 12px;
+}
+
+.text-cyan { color: #8ab4f8; } /* Mapped to icy blue */
+.text-pink { color: #5266eb; margin: 0 10px; } /* Mapped to cobalt */
+
+/* Glow pulse — Mashi26 style (use on images/cards) */
+@keyframes glow-pulse {
+  0%, 100% { filter: brightness(0.95) saturate(1); }
+  50%       { filter: brightness(1.15) saturate(1.2); }
+}
+.glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
+
+/* Floating wiggle */
+@keyframes wiggle {
+  0%, 100% { transform: translateY(-4px); }
+  50%       { transform: translateY(4px); }
+}
+.wiggle { animation: wiggle 2.5s ease-in-out infinite; }
+
+/* STYLE ITERATION 4: Mercury (Refero) — "alpine banking at blue hour".
    Tokens: onyx #171721 · graphite #1e1e2a · obsidian #272735
            ivory #ededf3 (never pure white body) · ash #c3c3cc
            cobalt #5266eb = the ONLY chromatic note.
@@ -103,11 +206,11 @@ body {
 }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ivory); font-weight: 480; font-size: 16px; }
-.brand-badge {
-  background: var(--cobalt); color: var(--white);
-  width: 34px; height: 34px; display: grid; place-items: center;
-  border-radius: 50%; font-weight: 480; font-size: 12px; letter-spacing: .02em;
-  padding: 0;
+.brand-logo {
+  width: 38px; height: 38px;
+  object-fit: contain;
+  border-radius: 6px;
+  filter: brightness(1.1);
 }
 .brand-text { font-weight: 480; }
 .brand-text em { font-style: normal; color: var(--ash); font-weight: 400; }
@@ -343,28 +446,233 @@ h2.reveal.in { filter: none; }
 .chip:hover { color: var(--ivory); border-color: var(--ivory); }
 .chip.active { background: var(--ivory); color: var(--onyx); border-color: var(--ivory); }
 
-/* team */
-.person { text-align: center; }
-.avatar {
-  width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 10px;
-  display: grid; place-items: center; font-weight: 480;
-  background: var(--obsidian); color: var(--ivory);
-  font-size: 1rem;
-  transition: transform .5s cubic-bezier(.2,.7,.2,1.4), background .3s;
+/* Team (Drishti Scroll-Linked Coverflow) */
+.team-scroll-section {
+  height: 400vh; /* Plenty of scroll room */
+  position: relative;
+  background: var(--canvas);
 }
-.person:hover .avatar { transform: scale(1.08); background: var(--cobalt); color: var(--white); }
-.person h3 { font-size: 1.05rem; }
-.person p { margin: 2px 0 0; font-size: 14px; }
+.team-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.coverflow-container {
+  position: absolute;
+  top: 58%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+.coverflow-floor {
+  position: absolute;
+  top: 240px; /* Sits at the bottom of the 440px tall cards */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140%;
+  max-width: 1700px;
+  height: 200px;
+  background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 -30px 80px rgba(0,0,0,0.9);
+  pointer-events: none;
+}
+.coverflow-track {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  transform-style: preserve-3d;
+}
+.coverflow-card {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 300px; height: 440px;
+  margin-top: -220px; margin-left: -150px;
+  transition: filter 0.3s ease;
+  will-change: transform, opacity;
+  user-select: none;
+}
+.coverflow-card .card-inner {
+  position: relative;
+  width: 100%; height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+}
+.coverflow-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.15) brightness(0.6);
+  transition: filter 0.8s;
+  z-index: 2;
+}
+.coverflow-card.active img {
+  filter: grayscale(0%) contrast(1.05) brightness(1); 
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+.coverflow-card .card-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 80px 20px 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.4), transparent);
+  text-align: center;
+  z-index: 3;
+}
+.coverflow-card h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 4px;
+  color: var(--ivory);
+}
+.coverflow-card p.bottom-role {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #D4AF37; 
+  margin: 0;
+  text-shadow: 0 0 10px rgba(212,175,55,0.4);
+}
 
-/* gallery */
-.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-.ph {
-  aspect-ratio: 16/10; border-radius: var(--radius-card);
-  border: 1px dashed var(--slate);
-  display: grid; place-items: center; color: var(--ash); background: rgba(0,0,0,.2);
-  font-size: 14px; overflow: hidden;
+/* Scatter Work Section (Scroll-Linked) */
+.scatter-section {
+  height: 250vh; /* creates scrolling room */
+  position: relative;
+  margin-top: 100px;
+  z-index: 10;
 }
-.ph span { transition: transform .35s ease; }
+.scatter-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.scatter-container {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.scatter-card {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 260px; height: 320px;
+  margin-top: -160px; margin-left: -130px;
+  /* Scrub based on --scroll-p without the broken -50% offset */
+  transform: 
+    translate(
+      calc(var(--tx) * var(--scroll-p, 0)), 
+      calc(var(--ty) * var(--scroll-p, 0))
+    ) 
+    rotate(calc(var(--rot) * var(--scroll-p, 0))) 
+    scale(calc(0.9 + 0.1 * var(--scroll-p, 0)));
+  opacity: calc(0.4 + 0.6 * var(--scroll-p, 0));
+  will-change: transform, opacity;
+}
+.polaroid {
+  width: 100%; height: 100%; margin: 0;
+  background: var(--onyx); /* #171721 */
+  padding: 8px 8px 36px 8px; /* Extra bottom padding for text */
+  border: 1px solid rgba(255, 255, 255, 0.15); 
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  display: flex; flex-direction: column;
+  position: relative;
+  z-index: 1;
+  transform: translateZ(0); /* Fixes Safari stacking bug */
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s ease;
+  cursor: pointer;
+}
+.polaroid img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  filter: grayscale(100%) contrast(1.1);
+  transition: filter 0.4s ease;
+}
+.polaroid-text {
+  position: absolute;
+  bottom: 8px; left: 0; width: 100%;
+  text-align: center;
+  color: var(--ivory);
+  font-family: 'Permanent Marker', cursive;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+}
+
+.scatter-card {
+  /* Ensuring hover z-index pop */
+  transition: z-index 0.4s step-end;
+}
+.scatter-card:hover {
+  z-index: 10 !important; /* snap to front */
+}
+.scatter-card:hover .polaroid {
+  transform: scale(1.15) rotate(0deg) !important;
+  background: #232332;
+}
+.scatter-card:hover .polaroid img {
+  filter: grayscale(0%);
+}
+
+/* Shravan-style Arch Carousel */
+.arch-section { position: relative; overflow: hidden; padding: 120px 0 160px; text-align: center; }
+.arch-container { position: relative; height: 350px; display: flex; justify-content: center; }
+.arch-wheel {
+  position: absolute; top: 120px;
+  width: 900px; height: 900px; border-radius: 50%;
+  animation: spinWheel 45s linear infinite;
+  will-change: transform;
+}
+.arch-item {
+  position: absolute; top: 50%; left: 50%;
+  width: 280px; height: 190px;
+  margin-top: -95px; margin-left: -140px;
+  transform-origin: center;
+  transform: rotate(var(--a)) translateY(-450px);
+  transition: transform 0.3s ease;
+}
+.arch-item .ph {
+  width: 100%; height: 100%; margin: 0;
+  background: rgba(255, 255, 255, 0.03); 
+  border: 1px solid rgba(255, 255, 255, 0.08); 
+  border-radius: 20px;
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.05), 0 8px 24px rgba(0,0,0,0.5);
+  display: grid; place-items: center; color: var(--ivory); font-weight: 480;
+  transition: all 0.3s ease; cursor: pointer;
+}
+.arch-item:hover .ph {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.2);
+  transform: scale(1.05);
+}
+@keyframes spinWheel {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.arch-text { position: relative; z-index: 10; padding-top: 20px; display: flex; flex-direction: column; align-items: center; }
 .ph:hover span { transform: scale(1.1); }
 
 /* forms — pill inputs */
@@ -406,6 +714,112 @@ h2.reveal.in { filter: none; }
 .faq-item.open .faq-a { grid-template-rows: 1fr; }
 .faq-a > p { overflow: hidden; margin: 0; color: var(--ash); }
 .faq-item.open .faq-a > p { margin: 0 24px 20px; }
+
+/* ================= DISHA DIRECTORY ================= */
+.directory-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 100px 0;
+  flex-wrap: wrap;
+}
+.dir-left {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+}
+.dir-hash {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 5px;
+  margin: 0;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.dir-neon {
+  font-family: 'Permanent Marker', cursive;
+  font-size: clamp(4rem, 8vw, 7rem);
+  color: #d15cff;
+  margin: -10px 0 60px 20px;
+  line-height: 1;
+  text-shadow: 0 0 10px #d15cff, 0 0 20px #d15cff, 0 0 30px #d15cff, 0 0 50px rgba(209, 92, 255, 0.5);
+  transform: rotate(-5deg);
+}
+.dir-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.dir-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding-bottom: 15px;
+}
+.dir-role {
+  color: #d15cff;
+  font-weight: 800;
+  width: 140px;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+}
+.dir-info {
+  color: rgba(255,255,255,0.9);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+}
+.dir-right.collage {
+  flex: 1.5;
+  min-width: 350px;
+  position: relative;
+  height: 650px;
+  perspective: 1000px;
+}
+.c-pic {
+  position: absolute;
+  width: 180px;
+  height: 250px;
+  border: 4px solid #1a1a24;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.8), inset 0 0 0 1px rgba(255,255,255,0.05);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
+  background: #000;
+}
+.c-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) brightness(0.6) contrast(1.2);
+  transition: filter 0.5s;
+}
+.c-pic:hover {
+  transform: scale(1.15) translateZ(50px) rotate(0deg) !important;
+  z-index: 100 !important;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.9);
+  border-color: #2a2a35;
+}
+.c-pic:hover img {
+  filter: grayscale(0%) brightness(1.1) contrast(1.05);
+}
+
+/* Scattered polaroid placement */
+.c-pic.p1 { top: 20px; left: 15%; transform: rotate(-6deg); z-index: 2; width: 160px; height: 220px; }
+.c-pic.p2 { top: -10px; right: 20%; transform: rotate(8deg); z-index: 1; width: 150px; height: 200px; }
+.c-pic.p3 { top: 180px; left: 38%; transform: translate(-50%, 0) rotate(-2deg); z-index: 5; width: 240px; height: 320px; }
+.c-pic.p4 { bottom: 80px; left: 10%; transform: rotate(5deg); z-index: 3; width: 170px; height: 230px; }
+.c-pic.p5 { bottom: 40px; right: 25%; transform: rotate(-7deg); z-index: 4; }
+.c-pic.p6 { top: 220px; right: 5%; transform: rotate(12deg); z-index: 2; width: 160px; height: 210px; }
+
+@media (max-width: 900px) {
+  .dir-right.collage { height: 500px; transform: scale(0.8); transform-origin: top center; }
+}
+
 
 /* back-to-top */
 #toTop {

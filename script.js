@@ -211,6 +211,84 @@ if (!calmMotion) {
     btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
   });
 
+  // Scatter Cards Animation (Scroll-Linked)
+  const scatterSection = document.getElementById('work');
+  if (scatterSection && !calmMotion) {
+    window.addEventListener('scroll', () => {
+      const rect = scatterSection.getBoundingClientRect();
+      let progress = 0;
+      if (rect.top > 0) {
+        progress = 0; // Not pinned yet
+      } else {
+        const maxScroll = rect.height - window.innerHeight;
+        if (maxScroll > 0) {
+          progress = Math.min(1, Math.max(0, -rect.top / maxScroll));
+        }
+      }
+      
+      const easedProgress = progress * progress * (3 - 2 * progress);
+      scatterSection.style.setProperty('--scroll-p', easedProgress.toFixed(4));
+    }, { passive: true });
+  }
+
+  // --- Drishti Scroll-Linked 3D Team ---
+  const teamSection = document.getElementById('team');
+  const teamCards = document.querySelectorAll('.coverflow-card');
+  
+  if (teamSection && teamCards.length > 0 && !calmMotion) {
+    const totalCards = teamCards.length;
+    
+    window.addEventListener('scroll', () => {
+      const rect = teamSection.getBoundingClientRect();
+      const maxScroll = rect.height - window.innerHeight;
+      
+      let progress = 0;
+      if (rect.top > 0) {
+        progress = 0;
+      } else if (rect.top < -maxScroll) {
+        progress = 1;
+      } else {
+        progress = -rect.top / maxScroll;
+      }
+      
+      // Start at the middle card (index 2 for a 5-card deck)
+      // Progress from 0 to 1 will scrub exactly one full loop through all cards
+      const floatIndex = 2 + progress * totalCards;
+      
+      teamCards.forEach((card, i) => {
+        // Calculate continuous wrapping offset
+        let offset = (i - floatIndex) % totalCards;
+        
+        // JS modulo bug fix for negatives, and wrap into the shortest path [-2.5, 2.5]
+        if (offset < -totalCards / 2) offset += totalCards;
+        if (offset > totalCards / 2) offset -= totalCards;
+        
+        const absOffset = Math.abs(offset);
+        
+        // Math for continuous 3D coverflow
+        const tx = offset * 80 + Math.sign(offset) * Math.min(absOffset, 1) * 30; // % horizontal shift
+        const tz = -absOffset * 150; // push depth
+        const ry = -Math.max(-55, Math.min(55, offset * 55)); // rotation angle clamped
+        const scale = Math.max(0.7, 1 - absOffset * 0.1); // scale down when away
+        
+        card.style.transform = `translateX(${tx}%) translateZ(${tz}px) rotateY(${ry}deg) scale(${scale})`;
+        card.style.zIndex = 100 - Math.round(absOffset * 10);
+        
+        // Fade out cards completely before they wrap around the back
+        if (absOffset < 0.4) {
+          card.classList.add('active');
+          card.style.opacity = 1;
+        } else {
+          card.classList.remove('active');
+          card.style.opacity = Math.max(0, 1 - (absOffset - 0.4) * 0.8);
+        }
+      });
+    }, { passive: true });
+    
+    // Initial trigger
+    window.dispatchEvent(new Event('scroll'));
+  }
+
   // --- Osmo-style Text Scramble ---
   class TextScramble {
     constructor(el) {
@@ -310,13 +388,13 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
-// Scroll signatures: hide-nav + velocity marquee
+// Scroll signatures: velocity marquee
 const navBar = document.querySelector('.nav');
 const track = document.querySelector('.marquee-track');
 let lastY = scrollY, velTimer = null;
 addEventListener('scroll', () => {
   const y = scrollY;
-  if (navBar && !calmMotion) navBar.classList.toggle('hide', y > 300 && y > lastY);
+  // Navigation hiding removed per user request: remains sticky always
   lastY = y;
   
   if (track && !calmMotion) {
