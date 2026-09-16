@@ -3,11 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- TODO: finalize title + meta copy with the team -->
-  <title>ISTE SC CET — Learn. Build. Lead.</title>
-  <meta name="description" content="ISTE Student Chapter CET — workshops, hackathons, tech talks and community. Base build: design + motion first, content placeholders throughout." />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Primary Meta Tags -->
+  <title>ISTE SC CET | College of Engineering Trivandrum</title>
+  <meta name="title" content="ISTE SC CET | College of Engineering Trivandrum" />
+  <meta name="description" content="The official Indian Society for Technical Education (ISTE) Student Chapter at CET. Empowering students with technical skills through workshops, hackathons, and hands-on projects." />
+  <meta name="keywords" content="ISTE, CET, College of Engineering Trivandrum, Student Chapter, tech club, workshops, hackathons, engineering, Kerala, tech community" />
+  <meta name="author" content="ISTE SC CET" />
+  <meta name="theme-color" content="#0e0d10" />
+  
+  <!-- Open Graph / Facebook (For link previews on WhatsApp, LinkedIn, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://iste.cet.ac.in/" />
+  <meta property="og:title" content="ISTE SC CET | College of Engineering Trivandrum" />
+  <meta property="og:description" content="The official Indian Society for Technical Education (ISTE) Student Chapter at CET. Empowering students with technical skills through workshops, hackathons, and projects." />
+  <meta property="og:image" content="https://iste.cet.ac.in/assets/team/logo.png" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://iste.cet.ac.in/" />
+  <meta property="twitter:title" content="ISTE SC CET | College of Engineering Trivandrum" />
+  <meta property="twitter:description" content="The official Indian Society for Technical Education (ISTE) Student Chapter at CET. Empowering students with technical skills through workshops, hackathons, and projects." />
+  <meta property="twitter:image" content="https://iste.cet.ac.in/assets/team/logo.png" />
+
+  <!-- Favicon & Canonical Link -->
+  <link rel="icon" type="image/png" href="assets/team/logo.png" />
+  <link rel="canonical" href="https://iste.cet.ac.in/" />
+
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+</head>
 <body>
   <!-- ═══ 3D ROTATING LOGO INTRO (Drishti style) ═══ -->
   <div id="preloader" role="presentation" aria-hidden="true">
@@ -62,7 +88,7 @@
   <header class="nav">
     <div class="container nav-inner">
       <a class="brand" href="#home">
-        <img src="assets/team/logo.png" alt="ISTE SC CET Logo" class="brand-logo" />
+        <img loading="lazy" src="assets/team/logo.png" alt="ISTE SC CET Logo" class="brand-logo" />
         <span class="brand-text">Student Chapter <em>CET</em></span>
       </a>
       <nav class="links" id="navLinks">
@@ -72,7 +98,6 @@
         <a href="#team"><span class="cube"><span class="face front">Team</span><span class="face bottom">Team</span></span></a>
         <a href="#gallery"><span class="cube"><span class="face front">Gallery</span><span class="face bottom">Gallery</span></span></a>
         <a href="#faq"><span class="cube"><span class="face front">FAQ</span><span class="face bottom">FAQ</span></span></a>
-        <a href="#join"><span class="cube"><span class="face front">Join Us</span><span class="face bottom">Join Us</span></span></a>
         <a href="#contact" class="btn btn-sm">Contact</a>
       </nav>
       <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
@@ -88,10 +113,10 @@
           <h1 class="reveal" style="--i:1">Innovate.<br />Inspire.<br /><span class="grad">Impact.</span></h1>
           <p class="muted reveal" style="--i:2">The ISTE Student Chapter at College of Engineering Trivandrum — empowering students with technical skills through workshops, seminars, and hands-on projects.</p>
           <div class="cta-row reveal" style="--i:3">
-            <a href="#join" class="btn">Join the Chapter</a>
+            <a href="#contact" class="btn">Join the Chapter</a>
             <a href="#events" class="btn btn-ghost">Explore Events</a>
           </div>
-          <div class="stats reveal" style="--i:4">
+          <div class="stats reveal" style="--i:4; display: flex; flex-wrap: wrap; gap: 24px;">
             <div><strong><span class="count" data-count="500">0</span>+</strong><span>Members</span></div>
             <div><strong><span class="count" data-count="50">0</span>+</strong><span>Events</span></div>
             <div><strong><span class="count" data-count="25">0</span>+</strong><span>Workshops</span></div>
@@ -103,23 +128,28 @@
           <span class="orb" style="width:9px;height:9px;right:8%;top:36%;animation-delay:-3s"></span>
           <span class="orb" style="width:12px;height:12px;left:10%;bottom:14%;animation-delay:-5s"></span>
           <span class="orb" style="width:7px;height:7px;right:20%;bottom:6%;animation-delay:-2s"></span>
-          <div class="launch-panel">
+          <div class="launch-panel" style="padding: 24px; max-width: 380px; margin: 64px auto 0;">
+            <img src="assets/events/pixelcraft_poster.jpg" alt="PixelCraft Poster" style="width: 100%; height: auto; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.5);">
             <div class="launch-head">
-              <span class="tbd-tag">FLAGSHIP EVENT 2026</span>
-              <h3>VERTEX 2026</h3>
-              <p class="muted">Stay updated with our exciting events, workshops, and competitions</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <h3 style="font-size: 1.6rem; margin: 0; line-height: 1.1;">PIXELCRAFT</h3>
+                <span class="tbd-tag" style="margin: 0; padding: 4px 10px; font-size: 11px;">UI/UX CHALLENGE</span>
+              </div>
+              <p class="muted" style="font-size: 14px; margin-bottom: 12px; line-height: 1.3;">Think different. Design different. Make your pixels speak.</p>
+              <div style="font-size: 0.85em; color: var(--ice); display: flex; justify-content: space-between;">
+                <span>🏆 ₹3K Prize Pool | 💰 ₹100 Reg</span>
+                <span>⭐ KTU Points</span>
+              </div>
             </div>
-            <div class="cd-grid" role="timer" aria-label="Countdown to VERTEX">
-              <div class="cd-box"><strong id="cd-d">--</strong><span>days</span></div>
-              <div class="cd-box"><strong id="cd-h">--</strong><span>hrs</span></div>
-              <div class="cd-box"><strong id="cd-m">--</strong><span>min</span></div>
+            <div class="cd-grid" role="timer" aria-label="Countdown to PIXELCRAFT" style="margin: 12px 0; gap: 8px;">
+              <div class="cd-box" style="padding: 10px 4px;"><strong id="cd-d" style="font-size: 1.5rem;">--</strong><span style="font-size: 11px;">days</span></div>
+              <div class="cd-box" style="padding: 10px 4px;"><strong id="cd-h" style="font-size: 1.5rem;">--</strong><span style="font-size: 11px;">hrs</span></div>
+              <div class="cd-box" style="padding: 10px 4px;"><strong id="cd-m" style="font-size: 1.5rem;">--</strong><span style="font-size: 11px;">min</span></div>
             </div>
-            <p class="cd-line" id="countdown">Coming Soon — Stay Tuned!</p>
-            <a href="#events" class="btn btn-block">See all events →</a>
+            <p class="cd-line" id="countdown" style="display: none;">Coming Soon — Stay Tuned!</p>
+            <a href="https://discover.snaptiqz.com/event/JS5vGFQJYoOr22PRGTbr5" target="_blank" rel="noopener noreferrer" class="btn btn-block" style="padding: 12px; font-size: 14px; margin-bottom: 8px;">Register now</a>
+            <p class="muted" style="font-size: 0.75rem; margin: 0; text-align: center;">Enquiry: Rayan +91 85906 39173</p>
           </div>
-          <div class="orbit-chip oc1">🛠️ Workshops</div>
-          <div class="orbit-chip oc2">💡 Hackathons</div>
-          <div class="orbit-chip oc3">🎙️ Talks</div>
         </div>
       </div>
 
@@ -129,43 +159,84 @@
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track">
         <div class="marquee-set">
-          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>VERTEX 2026</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
-          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>VERTEX 2026</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
-          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>VERTEX 2026</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
-          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>VERTEX 2026</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
+          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>PIXELCRAFT</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
+          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>PIXELCRAFT</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
+          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>PIXELCRAFT</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
+          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>PIXELCRAFT</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
         </div>
         <div class="marquee-set">
-          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>VERTEX 2026</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
-          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>VERTEX 2026</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
-          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>VERTEX 2026</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
-          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>VERTEX 2026</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
+          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>PIXELCRAFT</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
+          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>PIXELCRAFT</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
+          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>PIXELCRAFT</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
+          <span>WORKSHOPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>TECH TALKS</span><i>✦</i><span>PIXELCRAFT</span><i>✦</i><span>COMMUNITY</span><i>✦</i>
         </div>
       </div>
     </div>
 
     <!-- ================= ABOUT ================= -->
-    <section id="about" class="section">
-      <div class="container">
-        <p class="kicker reveal">About Us</p>
-        <h2 class="reveal" style="--i:1">The Indian Society for<br /><span class="grad">Technical Education</span></h2>
-        <p class="muted max-w reveal" style="--i:2">The ISTE Student Chapter at College of Engineering Trivandrum. Empowering students through innovation and practical learning.</p>
-        <div class="cards-3 stagger">
-          <div class="card lift reveal" style="--i:1">
-            <div class="icon">🎯</div>
-            <h3>Our Mission</h3>
-            <p>To empower students with technical skills and professional ethics, fostering a community of innovators and leaders who can solve real-world challenges.</p>
-          </div>
-          <div class="card lift reveal" style="--i:2">
-            <div class="icon">🔭</div>
-            <h3>Our Vision</h3>
-            <p>To be a leading student organization recognized for excellence in technical education, creating a platform that inspires continuous learning and collaboration.</p>
-          </div>
-          <div class="card lift reveal" style="--i:3">
-            <div class="icon">💎</div>
-            <h3>Our Values</h3>
-            <p>Innovation, integrity, and impact drive everything we do. We believe in hands-on learning, collaborative growth, and making a difference in the tech community.</p>
+    <!-- ================= ABOUT (CSA Style Network - Horizontal Scroll) ================= -->
+    <section id="about" class="about-csa-section">
+      <div class="csa-sticky-container">
+        <div class="csa-heading-wrap">
+          <div class="csa-line csa-line-top"></div>
+          <h2 class="csa-giant-heading reveal">About Us</h2>
+          <div class="csa-line csa-line-bottom"></div>
+        </div>
+        
+        <div class="csa-scroll-wrapper" id="csaTrack">
+          <div class="csa-network">
+            <div class="csa-grid">
+              <!-- SVG for dotted edges spanning the specific grid coordinates -->
+              <svg class="csa-lines-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polyline points="12.5,25 37.5,75 62.5,25 87.5,75" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="3" stroke-dasharray="10,10" vector-effect="non-scaling-stroke" />
+              </svg>
+
+              <!-- Col 1 -->
+            <div class="csa-node-cell reveal" style="grid-column:1; grid-row:1; --i:1;">
+              <div class="csa-circle">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              </div>
+            </div>
+            <div class="csa-text-cell reveal" style="grid-column:1; grid-row:2; --i:2;">
+              <h3>Who we are</h3>
+              <p>The Indian Society for Technical Education is a national, professional, non-profit Society registered under the Indian Societies Registration Act of 1860.</p>
+            </div>
+
+            <!-- Col 2 -->
+            <div class="csa-text-cell reveal" style="grid-column:2; grid-row:1; --i:3;">
+              <h3>What we do</h3>
+              <p>To contribute to the development of skilled, innovative and industry-ready engineers and technical professionals who can meet the evolving needs of industries and organizations.</p>
+            </div>
+            <div class="csa-node-cell reveal" style="grid-column:2; grid-row:2; --i:4;">
+              <div class="csa-circle">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+              </div>
+            </div>
+
+            <!-- Col 3 -->
+            <div class="csa-node-cell reveal" style="grid-column:3; grid-row:1; --i:5;">
+              <div class="csa-circle">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              </div>
+            </div>
+            <div class="csa-text-cell reveal" style="grid-column:3; grid-row:2; --i:6;">
+              <h3>Our vision</h3>
+              <p>To introduce several technological advancements of great importance to the student community.</p>
+            </div>
+
+            <!-- Col 4 -->
+            <div class="csa-text-cell reveal" style="grid-column:4; grid-row:1; --i:7;">
+              <h3>Our mission</h3>
+              <p>To enable students to explore the world of engineering and understand its scope.</p>
+            </div>
+            <div class="csa-node-cell reveal" style="grid-column:4; grid-row:2; --i:8;">
+              <div class="csa-circle">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
       </div>
     </section>
 
@@ -184,43 +255,24 @@
             <button class="chip" data-filter="talk">Talks</button>
           </div>
         </div>
-        <!-- TODO: replace cards with the real event calendar -->
         <div class="cards-3 stagger" id="eventGrid">
-          <article class="card event lift reveal" data-type="hackathon" style="--i:1">
-            <p class="tag">Hackathon · Oct 12–13</p>
-            <h3>HackNight 2026</h3>
-            <p>24-hour flagship hackathon. Build in teams, demo to judges, win prizes.</p>
-            <button class="btn btn-sm" data-register="HackNight 2026">Register</button>
+          <article class="card event lift reveal" data-type="talk" style="--i:1">
+            <p class="tag">Orientation · 25 Aug 2025</p>
+            <h3>Freshers Orientation &amp; JAM</h3>
+            <p>Welcomed first-year students to the ISTE community, followed by a JAM session to encourage creativity and expression.</p>
+            <button class="btn btn-sm" disabled>Completed</button>
           </article>
-          <article class="card event lift reveal" data-type="workshop" style="--i:2">
-            <p class="tag">Workshop · Sep 20</p>
-            <h3>Web Dev Bootcamp</h3>
-            <p>HTML, CSS, JS + deploy your first site. Laptops required.</p>
-            <button class="btn btn-sm" data-register="Web Dev Bootcamp">Register</button>
+          <article class="card event lift reveal" data-type="hackathon" style="--i:2">
+            <p class="tag">Competition · 27 Feb 2026</p>
+            <h3>DSA Coding Sprint</h3>
+            <p>Conducted as a LeetCode coding competition focused on Data Structures and Algorithms as part of Terrax'26.</p>
+            <button class="btn btn-sm" disabled>Completed</button>
           </article>
-          <article class="card event lift reveal" data-type="workshop" style="--i:3">
-            <p class="tag">Workshop · Sep 28</p>
-            <h3>Python &amp; Git Zero-to-Hero</h3>
-            <p>Python basics + GitHub workflow for first-year students.</p>
-            <button class="btn btn-sm" data-register="Python & Git Zero-to-Hero">Register</button>
-          </article>
-          <article class="card skel reveal" style="--i:4" aria-label="Placeholder event">
-            <p class="tag"><span class="tbd-tag">TBD</span></p>
-            <h3>Event title — TBD</h3>
-            <p>Placeholder card. Add date, blurb and registration link here.</p>
-            <button class="btn btn-sm" disabled>Coming soon</button>
-          </article>
-          <article class="card skel reveal" style="--i:5" aria-label="Placeholder event">
-            <p class="tag"><span class="tbd-tag">TBD</span></p>
-            <h3>Event title — TBD</h3>
-            <p>Placeholder card. Add date, blurb and registration link here.</p>
-            <button class="btn btn-sm" disabled>Coming soon</button>
-          </article>
-          <article class="card skel reveal" style="--i:6" aria-label="Placeholder event">
-            <p class="tag"><span class="tbd-tag">TBD</span></p>
-            <h3>Event title — TBD</h3>
-            <p>Placeholder card. Add date, blurb and registration link here.</p>
-            <button class="btn btn-sm" disabled>Coming soon</button>
+          <article class="card event lift reveal" data-type="hackathon" style="--i:3">
+            <p class="tag">Competition · 6 Sep 2025</p>
+            <h3>Online Treasure Hunt</h3>
+            <p>Featured an engaging online treasure hunt involving puzzles, riddles, and challenging clues as part of Onam celebrations.</p>
+            <button class="btn btn-sm" disabled>Completed</button>
           </article>
         </div>
       </div>
@@ -237,71 +289,186 @@
         <div class="coverflow-container" id="teamCoverflow">
         <div class="coverflow-floor"></div>
         <div class="coverflow-track">
-          <div class="coverflow-card"><div class="card-inner">
-            <img src="assets/team/adhin.jpg" alt="Adhin"/>
-            <div class="card-overlay"><h3>Adhin</h3><p class="bottom-role">Vice Chairperson</p></div>
-          </div></div>
           
           <div class="coverflow-card"><div class="card-inner">
-            <img src="assets/team/devika.jpg" alt="Devika"/>
-            <div class="card-overlay"><h3>Devika</h3><p class="bottom-role">Chairperson</p></div>
+            <img loading="lazy" src="assets/team_web/adhin_shiju_sam__chairperson.jpg" alt="Adhin Shiju Sam"/>
+            <div class="card-overlay"><h3>Adhin Shiju Sam</h3><p class="bottom-role">Chairperson</p></div>
           </div></div>
-          
+
           <div class="coverflow-card"><div class="card-inner">
-            <img src="assets/team/avanthika.jpg" alt="Avanthika"/>
-            <div class="card-overlay"><h3>Avanthika</h3><p class="bottom-role">Treasurer</p></div>
+            <img loading="lazy" src="assets/team_web/rayan_j_koodathil_vice_chair.jpg" alt="Rayan J"/>
+            <div class="card-overlay"><h3>Rayan J</h3><p class="bottom-role">Vice Chair</p></div>
           </div></div>
-          
+
           <div class="coverflow-card"><div class="card-inner">
-            <img src="assets/team/mithravinda.jpg" alt="Mithravinda"/>
-            <div class="card-overlay"><h3>Mithravinda</h3><p class="bottom-role">Joint Secretary</p></div>
+            <img loading="lazy" src="assets/team_web/niharika_s___secretary.jpg" alt="Niharika S"/>
+            <div class="card-overlay"><h3>Niharika S</h3><p class="bottom-role">Secretary</p></div>
           </div></div>
-          
+
           <div class="coverflow-card"><div class="card-inner">
-            <img src="assets/team/kasinath.jpg" alt="Kasinath"/>
-            <div class="card-overlay"><h3>Kasinath</h3><p class="bottom-role">Tech Lead</p></div>
+            <img loading="lazy" src="assets/team_web/avanthika_v_treasurer.jpg" alt="Avanthika V"/>
+            <div class="card-overlay"><h3>Avanthika V</h3><p class="bottom-role">Treasurer</p></div>
           </div></div>
+
+          <div class="coverflow-card"><div class="card-inner">
+            <img loading="lazy" src="assets/team_web/mohammed_marzuq_a_joint_treasurer.jpg" alt="Marzuq"/>
+            <div class="card-overlay"><h3>Marzuq</h3><p class="bottom-role">Joint Treasurer</p></div>
+          </div></div>
+
+          <div class="coverflow-card"><div class="card-inner">
+            <img loading="lazy" src="assets/team_web/markjohny_jointsec.jpg" alt="Mark Johny"/>
+            <div class="card-overlay"><h3>Mark Johny</h3><p class="bottom-role">Joint Sec</p></div>
+          </div></div>
+
+          <div class="coverflow-card"><div class="card-inner">
+            <img loading="lazy" src="assets/team_web/anugraha_jayakrishnan___wit_chairperson_.jpg" alt="Anugraha J"/>
+            <div class="card-overlay"><h3>Anugraha J</h3><p class="bottom-role">WIT Head</p></div>
+          </div></div>
+
+          <div class="coverflow-card"><div class="card-inner">
+            <img loading="lazy" src="assets/team_web/joseph_savio_software_lead_.jpg" alt="Joseph Savio"/>
+            <div class="card-overlay"><h3>Joseph Savio</h3><p class="bottom-role">Software Head</p></div>
+          </div></div>
+
+          <div class="coverflow-card"><div class="card-inner">
+            <img loading="lazy" src="assets/team_web/harisankar_k__project_head_hardware_.jpg" alt="Harisankar K"/>
+            <div class="card-overlay"><h3>Harisankar K</h3><p class="bottom-role">Hardware Head</p></div>
+          </div></div>
+
+          <div class="coverflow-card"><div class="card-inner">
+            <img loading="lazy" src="assets/team_web/sreehari_m_s___events_head.jpg" alt="Sreehari M S"/>
+            <div class="card-overlay"><h3>Sreehari M S</h3><p class="bottom-role">Events Head</p></div>
+          </div></div>
+
+          <div class="coverflow-card"><div class="card-inner">
+            <img loading="lazy" src="assets/team_web/abhiroop___publicity_head.jpg" alt="Abhiroop"/>
+            <div class="card-overlay"><h3>Abhiroop</h3><p class="bottom-role">Publicity Head</p></div>
+          </div></div>
+
+          <div class="coverflow-card"><div class="card-inner">
+            <img loading="lazy" src="assets/team_web/josin_jiby_registration_head.jpg" alt="Josin Jiby"/>
+            <div class="card-overlay"><h3>Josin Jiby</h3><p class="bottom-role">Registration Head</p></div>
+          </div></div>
+
+          <div class="coverflow-card"><div class="card-inner">
+            <img loading="lazy" src="assets/team_web/neha_shabudheen_design_lead.jpg" alt="Neha Shabudheen"/>
+            <div class="card-overlay"><h3>Neha Shabudheen</h3><p class="bottom-role">Design Head</p></div>
+          </div></div>
+
+          <div class="coverflow-card"><div class="card-inner">
+            <img loading="lazy" src="assets/team_web/joseph_johnson_web_head.jpg" alt="Joseph Johnson"/>
+            <div class="card-overlay"><h3>Joseph Johnson</h3><p class="bottom-role">Web Head</p></div>
+          </div></div>
+
         </div>
       </div>
       </div>
     </section>
 
-    <!-- ================= SCATTER WORK (SCROLL-LINKED) ================= -->
-    <section id="work" class="scatter-section">
+    <!-- ================= SCATTER GALLERY (SCROLL-LINKED) ================= -->
+    <section id="event-moments" class="scatter-section">
       <div class="scatter-sticky">
         <div class="container" style="position: absolute; top: 40px; left: 0; right: 0; text-align: center; z-index: 20; pointer-events: none;">
           <p class="kicker reveal">Portfolio</p>
-          <h2 class="grad reveal" style="font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 8px;">Featured Work</h2>
+          <h2 class="grad reveal" style="font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 8px;">ISTE Moments</h2>
         </div>
-        <div class="scatter-container" id="scatterBox">
-          <div class="scatter-card" style="--tx: -26vw; --ty: -40px; --rot: -12deg; z-index: 1;">
+        <div class="scatter-container" id="scatterBoxGallery">
+          <!-- Gallery Images (6 cards) -->
+          <div class="scatter-card" style="--tx: -30vw; --ty: -60px; --rot: -15deg; z-index: 2;">
             <div class="polaroid">
-              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&q=80" alt="Doctoral Self-Care"/>
-              <div class="polaroid-text">Doctoral Self-Care</div>
+              <img loading="lazy" src="assets/extracted_images/image9.png" alt="Gallery"/>
+              <div class="polaroid-text">Convention</div>
             </div>
           </div>
-          <div class="scatter-card" style="--tx: 0vw; --ty: -80px; --rot: 0deg; z-index: 2;">
+          <div class="scatter-card" style="--tx: -10vw; --ty: -70px; --rot: 5deg; z-index: 1;">
             <div class="polaroid">
-              <img src="https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?w=400&q=80" alt="ICCC 2025"/>
-              <div class="polaroid-text">ICCC 2025</div>
+              <img loading="lazy" src="assets/extracted_images/image6.png" alt="Gallery"/>
+              <div class="polaroid-text">Freshers Orientation</div>
             </div>
           </div>
-          <div class="scatter-card" style="--tx: 26vw; --ty: -40px; --rot: 12deg; z-index: 1;">
+          <div class="scatter-card" style="--tx: 15vw; --ty: -80px; --rot: -8deg; z-index: 3;">
             <div class="polaroid">
-              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&q=80" alt="Glitch CET"/>
-              <div class="polaroid-text">Glitch CET</div>
+              <img loading="lazy" src="assets/extracted_images/image3.png" alt="Gallery"/>
+              <div class="polaroid-text">Community Meetup</div>
             </div>
           </div>
-          <div class="scatter-card" style="--tx: -16vw; --ty: 140px; --rot: -6deg; z-index: 3;">
+          <div class="scatter-card" style="--tx: 32vw; --ty: -40px; --rot: 12deg; z-index: 2;">
             <div class="polaroid">
-              <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=80" alt="Butterfly Effect"/>
-              <div class="polaroid-text">Butterfly Effect</div>
+              <img loading="lazy" src="assets/extracted_images/image5.png" alt="Gallery"/>
+              <div class="polaroid-text">Design Sprint</div>
             </div>
           </div>
-          <div class="scatter-card" style="--tx: 16vw; --ty: 140px; --rot: 6deg; z-index: 2;">
+          <div class="scatter-card" style="--tx: -15vw; --ty: 120px; --rot: -5deg; z-index: 4;">
             <div class="polaroid">
-              <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&q=80" alt="Hackathon"/>
-              <div class="polaroid-text">Hackathon</div>
+              <img loading="lazy" src="assets/extracted_images/image8.png" alt="Gallery"/>
+              <div class="polaroid-text">ISTE Connect '26</div>
+            </div>
+          </div>
+          <div class="scatter-card" style="--tx: 25vw; --ty: 100px; --rot: 8deg; z-index: 3;">
+            <div class="polaroid">
+              <img loading="lazy" src="assets/extracted_images/image10.png" alt="Gallery"/>
+              <div class="polaroid-text">Robotics Workshop</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SCATTER ACHIEVEMENTS (SCROLL-LINKED) ================= -->
+    <section id="student-achievements" class="scatter-section">
+      <div class="scatter-sticky">
+        <div class="container" style="position: absolute; top: 40px; left: 0; right: 0; text-align: center; z-index: 20; pointer-events: none;">
+          <p class="kicker reveal">Hall of Fame</p>
+          <h2 class="grad reveal" style="font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 8px;">Awards &amp; Achievements</h2>
+        </div>
+        <div class="scatter-container" id="scatterBoxAchievements">
+          <!-- Achievement Images (8 cards) -->
+          <div class="scatter-card" style="--tx: -35vw; --ty: -80px; --rot: -10deg; z-index: 3;">
+            <div class="polaroid">
+              <img loading="lazy" src="assets/extracted_images/image14.png" alt="Achievement"/>
+              <div class="polaroid-text">ACHIEVEMENT</div>
+            </div>
+          </div>
+          <div class="scatter-card" style="--tx: -12vw; --ty: -90px; --rot: 5deg; z-index: 4;">
+            <div class="polaroid">
+              <img loading="lazy" src="assets/extracted_images/image4.png" alt="Achievement"/>
+              <div class="polaroid-text">ACHIEVEMENT</div>
+            </div>
+          </div>
+          <div class="scatter-card" style="--tx: 12vw; --ty: -70px; --rot: -8deg; z-index: 5;">
+            <div class="polaroid">
+              <img loading="lazy" src="assets/extracted_images/image12.png" alt="Achievement"/>
+              <div class="polaroid-text">ACHIEVEMENT</div>
+            </div>
+          </div>
+          <div class="scatter-card" style="--tx: 35vw; --ty: -60px; --rot: 12deg; z-index: 6;">
+            <div class="polaroid">
+              <img loading="lazy" src="assets/extracted_images/image13.png" alt="Achievement"/>
+              <div class="polaroid-text">ACHIEVEMENT</div>
+            </div>
+          </div>
+          <div class="scatter-card" style="--tx: -25vw; --ty: 120px; --rot: -5deg; z-index: 2;">
+            <div class="polaroid">
+              <img loading="lazy" src="assets/extracted_images/image11.png" alt="Achievement"/>
+              <div class="polaroid-text">ACHIEVEMENT</div>
+            </div>
+          </div>
+          <div class="scatter-card" style="--tx: 0vw; --ty: 160px; --rot: 8deg; z-index: 1;">
+            <div class="polaroid">
+              <img loading="lazy" src="assets/extracted_images/image2.png" alt="Achievement"/>
+              <div class="polaroid-text">ACHIEVEMENT</div>
+            </div>
+          </div>
+          <div class="scatter-card" style="--tx: 25vw; --ty: 130px; --rot: -12deg; z-index: 1;">
+            <div class="polaroid">
+              <img loading="lazy" src="assets/extracted_images/image7.png" alt="Achievement"/>
+              <div class="polaroid-text">ACHIEVEMENT</div>
+            </div>
+          </div>
+          <div class="scatter-card" style="--tx: 0vw; --ty: 0px; --rot: 0deg; z-index: 10;">
+            <div class="polaroid">
+              <img loading="lazy" src="assets/extracted_images/image1.png" alt="Achievement"/>
+              <div class="polaroid-text">OUTSTANDING ACHIEVEMENT</div>
             </div>
           </div>
         </div>
@@ -313,16 +480,16 @@
       <div class="arch-container">
         <div class="arch-wheel">
           <!-- 10 items to complete a 360 circle -->
-          <div class="arch-item" style="--a: 0deg;"><div class="ph">Project 1</div></div>
-          <div class="arch-item" style="--a: 36deg;"><div class="ph">Project 2</div></div>
-          <div class="arch-item" style="--a: 72deg;"><div class="ph">Project 3</div></div>
-          <div class="arch-item" style="--a: 108deg;"><div class="ph">Project 4</div></div>
-          <div class="arch-item" style="--a: 144deg;"><div class="ph">Project 5</div></div>
-          <div class="arch-item" style="--a: 180deg;"><div class="ph">Project 6</div></div>
-          <div class="arch-item" style="--a: 216deg;"><div class="ph">Project 7</div></div>
-          <div class="arch-item" style="--a: 252deg;"><div class="ph">Project 8</div></div>
-          <div class="arch-item" style="--a: 288deg;"><div class="ph">Project 9</div></div>
-          <div class="arch-item" style="--a: 324deg;"><div class="ph">Project 10</div></div>
+          <div class="arch-item" style="--a: 0deg;"><img loading="lazy" src="assets/gallery/gallery_1.jpg" alt="Gallery 1" style="width:100%; height:100%; object-fit:cover; border-radius:12px;" /></div>
+          <div class="arch-item" style="--a: 36deg;"><img loading="lazy" src="assets/gallery/gallery_2.jpg" alt="Gallery 2" style="width:100%; height:100%; object-fit:cover; border-radius:12px;" /></div>
+          <div class="arch-item" style="--a: 72deg;"><img loading="lazy" src="assets/gallery/gallery_3.jpg" alt="Gallery 3" style="width:100%; height:100%; object-fit:cover; border-radius:12px;" /></div>
+          <div class="arch-item" style="--a: 108deg;"><img loading="lazy" src="assets/gallery/gallery_4.jpg" alt="Gallery 4" style="width:100%; height:100%; object-fit:cover; border-radius:12px;" /></div>
+          <div class="arch-item" style="--a: 144deg;"><img loading="lazy" src="assets/gallery/gallery_5.jpg" alt="Gallery 5" style="width:100%; height:100%; object-fit:cover; border-radius:12px;" /></div>
+          <div class="arch-item" style="--a: 180deg;"><img loading="lazy" src="assets/gallery/gallery_6.jpg" alt="Gallery 6" style="width:100%; height:100%; object-fit:cover; border-radius:12px;" /></div>
+          <div class="arch-item" style="--a: 216deg;"><img loading="lazy" src="assets/gallery/gallery_7.jpg" alt="Gallery 7" style="width:100%; height:100%; object-fit:cover; border-radius:12px;" /></div>
+          <div class="arch-item" style="--a: 252deg;"><img loading="lazy" src="assets/gallery/gallery_8.jpg" alt="Gallery 8" style="width:100%; height:100%; object-fit:cover; border-radius:12px;" /></div>
+          <div class="arch-item" style="--a: 288deg;"><img loading="lazy" src="assets/gallery/gallery_9.jpg" alt="Gallery 9" style="width:100%; height:100%; object-fit:cover; border-radius:12px;" /></div>
+          <div class="arch-item" style="--a: 324deg;"><img loading="lazy" src="assets/events/image5.png" alt="Gallery 10" style="width:100%; height:100%; object-fit:cover; border-radius:12px;" /></div>
         </div>
       </div>
       <div class="arch-text">
@@ -333,83 +500,43 @@
     </section>
 
     <!-- ================= FAQ ================= -->
-    <!-- TODO: replace with the real FAQs from the team -->
     <section id="faq" class="section">
       <div class="container narrow">
         <p class="kicker reveal">FAQ</p>
         <h2 class="reveal" style="--i:1">Questions, <span class="grad">answered.</span></h2>
         <div class="faq reveal" style="--i:2">
           <div class="faq-item">
-            <button class="faq-q">Who can join ISTE? <span>+</span></button>
-            <div class="faq-a"><p>Placeholder — any CET student from any branch or year. No prior experience needed.</p></div>
+            <button class="faq-q">Who can join the ISTE Student Chapter? <span>+</span></button>
+            <div class="faq-a"><p>Any student enrolled at the College of Engineering Trivandrum (CET), regardless of their branch or year of study, is welcome to join. Our community thrives on diverse perspectives from all engineering disciplines.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q">Do I need to know coding already? <span>+</span></button>
-            <div class="faq-a"><p>Placeholder — no. Beginner tracks start from zero in every workshop series.</p></div>
+            <button class="faq-q">Do I need prior technical experience to participate? <span>+</span></button>
+            <div class="faq-a"><p>Not at all! We organize events and workshops catering to all skill levels. From absolute beginners to advanced tech enthusiasts, there is always an opportunity to learn, build, and grow your skillset from scratch.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q">How do I register for HackNight? <span>+</span></button>
-            <div class="faq-a"><p>Placeholder — hit Register on the event card; team formation details go here.</p></div>
+            <button class="faq-q">What kind of events does ISTE CET organize? <span>+</span></button>
+            <div class="faq-a"><p>We conduct a wide variety of activities, including technical workshops (UI/UX, Web Dev, AI/ML), competitive hackathons, coding sprints, expert talks, and engaging networking events like Treasure Hunts and Orientations.</p></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q">Do members get certificates? <span>+</span></button>
-            <div class="faq-a"><p>Placeholder — yes, for workshops, volunteering and flagship events.</p></div>
+            <button class="faq-q">Will I receive certificates for attending events? <span>+</span></button>
+            <div class="faq-a"><p>Yes! Active participants and volunteers receive official ISTE certificates for flagship events, workshops, and competitions. These certificates are a great addition to your resume and can also help you earn KTU activity points.</p></div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ================= JOIN ================= -->
-    <section id="join" class="section">
-      <div class="container join-grid">
-        <div>
-          <p class="kicker reveal">Join Us</p>
-          <h2 class="reveal" style="--i:1">Become a member<br />in <span class="grad">2 minutes.</span></h2>
-          <ul class="ticks reveal" style="--i:2">
-            <li>✓ Open to all years &amp; branches</li>
-            <li>✓ Certificates for workshops &amp; volunteering</li>
-            <li>✓ Priority seats in hackathons</li>
-          </ul>
-          <!-- TODO: connect a backend or Google Form before launch -->
-        </div>
-        <form class="card form reveal" style="--i:2" id="joinForm">
-          <label>Name<input required name="name" placeholder="Your full name" /></label>
-          <label>Email<input required type="email" name="email" placeholder="you@college.edu" /></label>
-          <label>Branch / Year
-            <select name="branch">
-              <option>CSE - 1st Year</option>
-              <option>CSE - 2nd Year</option>
-              <option>ECE</option>
-              <option>EEE</option>
-              <option>Mech / Civil</option>
-              <option>Other</option>
-            </select>
-          </label>
-          <label>Interest
-            <select name="interest">
-              <option>Web Dev</option>
-              <option>AI / ML</option>
-              <option>Design</option>
-              <option>Event Management</option>
-              <option>Marketing</option>
-            </select>
-          </label>
-          <button class="btn btn-block" type="submit">Submit Application</button>
-          <p class="muted small" id="joinMsg">Stored locally in your browser (demo). Connect a backend / Google Form later.</p>
-        </form>
-      </div>
-    </section>
 
-    <!-- ================= CONTACT ================= -->
-    <!-- TODO: confirm official email, room, hours and social links.
-         Old site used: iste@cet.ac.in, +91 80865 00369, +91 89213 41291,
-         instagram.com/iste_sc_cet, linkedin.com/company/iste-sc-cet, WhatsApp invite. -->
     <section id="contact" class="section alt">
       <div class="container contact-grid">
         <div>
           <p class="kicker reveal">Contact</p>
           <h2 class="reveal" style="--i:1">Reach us</h2>
-          <p class="muted reveal" style="--i:2">Email: <a href="mailto:iste@cet.ac.in">iste@cet.ac.in</a> <button class="copy-btn" data-copy="iste@cet.ac.in">Copy</button><br />College of Engineering Trivandrum · Sreekaryam, Trivandrum – 695016</p>
+          <p class="muted reveal" style="--i:2">
+            Email: <a href="mailto:iste@cet.ac.in">iste@cet.ac.in</a> <button class="copy-btn" data-copy="iste@cet.ac.in">Copy</button><br />
+            Website: <a href="https://iste.cet.ac.in" target="_blank" rel="noopener">iste.cet.ac.in</a> <button class="copy-btn" data-copy="https://iste.cet.ac.in">Copy</button><br />
+            College of Engineering Trivandrum · Sreekaryam, Trivandrum – 695016
+          </p>
           <div class="socials reveal" style="--i:3">
             <a href="https://www.instagram.com/iste_sc_cet" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
             <a href="https://www.linkedin.com/company/iste-sc-cet/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
@@ -417,8 +544,9 @@
           </div>
         </div>
         <form class="card form reveal" style="--i:2" id="contactForm">
-          <label>Name<input required placeholder="Your name" /></label>
-          <label>Message<textarea required rows="4" placeholder="How can we help?"></textarea></label>
+          <label>Name<input required placeholder="Your name" name="name" /></label>
+          <label>Email<input required type="email" placeholder="name@cet.ac.in" name="email" /></label>
+          <label>Message<textarea required rows="4" placeholder="How can we help?" name="message"></textarea></label>
           <button class="btn btn-block" type="submit">Send</button>
           <p class="muted small" id="contactMsg"></p>
         </form>
@@ -428,7 +556,7 @@
 
   <footer>
     <div class="container foot">
-      <span>© 2026 ISTE Student Chapter CET · base build</span>
+      <span>&copy; 2026 ISTE Student Chapter CET. All Rights Reserved.</span>
       <a href="#home" class="link">Back to top ↑</a>
     </div>
   </footer>

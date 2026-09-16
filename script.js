@@ -132,18 +132,6 @@ document.querySelectorAll('[data-register]').forEach(btn => {
 });
 
 // Join form -> localStorage demo
-const joinForm = document.getElementById('joinForm');
-const joinMsg = document.getElementById('joinMsg');
-joinForm?.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const data = Object.fromEntries(new FormData(joinForm).entries());
-  const existing = JSON.parse(localStorage.getItem('iste_members') || '[]');
-  existing.push({ ...data, at: new Date().toISOString() });
-  localStorage.setItem('iste_members', JSON.stringify(existing));
-  joinMsg.textContent = `Thanks ${data.name}! Application saved locally. Total demo signups: ${existing.length}`;
-  joinForm.reset();
-});
-
 // Contact form demo
 const contactForm = document.getElementById('contactForm');
 const contactMsg = document.getElementById('contactMsg');
@@ -153,21 +141,21 @@ contactForm?.addEventListener('submit', (e) => {
   contactForm.reset();
 });
 
-// Countdown to HackNight 2026 (Oct 12)
+// Countdown to PIXELCRAFT 2026 (Sept 19)
 const countdownEl = document.getElementById('countdown');
-const target = new Date('2026-10-12T09:00:00');
+const target = new Date('2026-09-19T00:00:00');
 function tick() {
   const diff = target - new Date();
   const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
   if (diff <= 0) {
-    if (countdownEl) countdownEl.textContent = 'HackNight is live!';
+    if (countdownEl) countdownEl.textContent = 'PIXELCRAFT is live!';
     set('cd-d', '0'); set('cd-h', '0'); set('cd-m', '0');
     return;
   }
   const d = Math.floor(diff / 86400000);
   const h = Math.floor(diff % 86400000 / 3600000);
   const m = Math.floor(diff % 3600000 / 60000);
-  if (countdownEl) countdownEl.textContent = `${d}d ${h}h ${m}m to HackNight`;
+  if (countdownEl) countdownEl.textContent = `${d}d ${h}h ${m}m to PIXELCRAFT`;
   set('cd-d', d); set('cd-h', h); set('cd-m', m);
 }
 setInterval(tick, 30000); tick();
@@ -212,22 +200,24 @@ if (!calmMotion) {
   });
 
   // Scatter Cards Animation (Scroll-Linked)
-  const scatterSection = document.getElementById('work');
-  if (scatterSection && !calmMotion) {
+  const scatterSections = document.querySelectorAll('.scatter-section');
+  if (!calmMotion && scatterSections.length > 0) {
     window.addEventListener('scroll', () => {
-      const rect = scatterSection.getBoundingClientRect();
-      let progress = 0;
-      if (rect.top > 0) {
-        progress = 0; // Not pinned yet
-      } else {
-        const maxScroll = rect.height - window.innerHeight;
-        if (maxScroll > 0) {
-          progress = Math.min(1, Math.max(0, -rect.top / maxScroll));
+      scatterSections.forEach(scatterSection => {
+        const rect = scatterSection.getBoundingClientRect();
+        let progress = 0;
+        if (rect.top > 0) {
+          progress = 0; // Not pinned yet
+        } else {
+          const maxScroll = rect.height - window.innerHeight;
+          if (maxScroll > 0) {
+            progress = Math.min(1, Math.max(0, -rect.top / maxScroll));
+          }
         }
-      }
-      
-      const easedProgress = progress * progress * (3 - 2 * progress);
-      scatterSection.style.setProperty('--scroll-p', easedProgress.toFixed(4));
+        
+        const easedProgress = progress * progress * (3 - 2 * progress);
+        scatterSection.style.setProperty('--scroll-p', easedProgress.toFixed(4));
+      });
     }, { passive: true });
   }
 
@@ -251,9 +241,9 @@ if (!calmMotion) {
         progress = -rect.top / maxScroll;
       }
       
-      // Start at the middle card (index 2 for a 5-card deck)
+      // Start at the first card (index 0)
       // Progress from 0 to 1 will scrub exactly one full loop through all cards
-      const floatIndex = 2 + progress * totalCards;
+      const floatIndex = progress * totalCards;
       
       teamCards.forEach((card, i) => {
         // Calculate continuous wrapping offset
@@ -462,7 +452,7 @@ addEventListener('scroll', () => {
 }, { passive: true });
 toTop?.addEventListener('click', () => scrollTo({ top: 0, behavior: calmMotion ? 'auto' : 'smooth' }));
 
-// Copy email with feedback
+// Copy button
 document.querySelectorAll('.copy-btn').forEach(btn => {
   btn.addEventListener('click', async () => {
     const text = btn.dataset.copy || '';
@@ -489,3 +479,26 @@ setInterval(() => {
 }, 1000);
 
 
+
+// CSA About Section Horizontal Scroll
+const aboutCsaSection = document.querySelector('.about-csa-section');
+const csaTrack = document.getElementById('csaTrack');
+
+if (aboutCsaSection && csaTrack) {
+  window.addEventListener('scroll', () => {
+    const rect = aboutCsaSection.getBoundingClientRect();
+    const maxScroll = aboutCsaSection.offsetHeight - window.innerHeight;
+    
+    // progress is 0 at top of viewport, 1 at end of scroll
+    let progress = -rect.top / maxScroll;
+    progress = Math.max(0, Math.min(1, progress));
+    
+    // Calculate how far left we need to push the track.
+    // We want the end of the 1600px track to be visible.
+    const moveAmt = Math.max(0, csaTrack.scrollWidth - window.innerWidth + 40); 
+    csaTrack.style.transform = `translateX(${-progress * moveAmt}px)`;
+    
+    // Trigger SVG drawing manually based on progress if needed, 
+    // or just let the IntersectionObserver handle it via .reveal
+  });
+}
