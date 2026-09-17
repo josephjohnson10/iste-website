@@ -271,8 +271,8 @@ if (!calmMotion) {
       }
       
       // Start at the first card (index 0)
-      // Progress from 0 to 1 will scrub exactly one full loop through all cards
-      const floatIndex = progress * totalCards;
+      // Progress from 0 to 1 will scrub exactly to the last card (totalCards - 1)
+      const floatIndex = progress * (totalCards - 1);
       
       teamCards.forEach((card, i) => {
         // Calculate continuous wrapping offset
@@ -303,6 +303,78 @@ if (!calmMotion) {
         }
       });
     }, { passive: true });
+    
+    // ── Drag / Swipe to scroll the coverflow (syncs with vertical scroll) ──
+    const coverflowContainer = document.getElementById('teamCoverflow');
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartProgress = 0;
+    const PX_PER_CARD = 120;
+
+    function getProgress() {
+      const rect = teamSection.getBoundingClientRect();
+      const maxScroll = teamSection.offsetHeight - window.innerHeight;
+      let p = -rect.top / maxScroll;
+      return Math.max(0, Math.min(1, p));
+    }
+
+    function setProgress(p) {
+      p = Math.max(0, Math.min(1, p));
+      const maxScroll = teamSection.offsetHeight - window.innerHeight;
+      const targetY = teamSection.offsetTop + p * maxScroll;
+      window.scrollTo({ top: targetY, behavior: 'instant' });
+    }
+
+    // Mouse drag
+    coverflowContainer?.addEventListener('mousedown', e => {
+      isDragging = true;
+      dragStartX = e.clientX;
+      dragStartProgress = getProgress();
+      e.preventDefault();
+    });
+    window.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      const dx = e.clientX - dragStartX;
+      const cardsMoved = -dx / PX_PER_CARD;
+      setProgress(dragStartProgress + cardsMoved / (totalCards - 1));
+    });
+    window.addEventListener('mouseup', () => { isDragging = false; });
+
+    // Touch swipe (mobile)
+    let touchStartX = 0;
+    let touchStartProgress = 0;
+    coverflowContainer?.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+      touchStartProgress = getProgress();
+    }, { passive: true });
+    coverflowContainer?.addEventListener('touchmove', e => {
+      const dx = e.touches[0].clientX - touchStartX;
+      const cardsMoved = -dx / PX_PER_CARD;
+      setProgress(touchStartProgress + cardsMoved / (totalCards - 1));
+    }, { passive: true });
+
+    // Trackpad horizontal swipe
+    let wheelAccumulator = 0;
+    let isWheelTicking = false;
+    
+    coverflowContainer?.addEventListener('wheel', e => {
+      // If the scroll is mostly vertical, let the page scroll normally
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) return; 
+      
+      e.preventDefault();
+      const maxScroll = teamSection.offsetHeight - window.innerHeight;
+      const verticalScrollAmount = (e.deltaX / PX_PER_CARD) * (maxScroll / (totalCards - 1));
+      wheelAccumulator += verticalScrollAmount;
+
+      if (!isWheelTicking) {
+        requestAnimationFrame(() => {
+          window.scrollBy({ top: wheelAccumulator, behavior: 'instant' });
+          wheelAccumulator = 0;
+          isWheelTicking = false;
+        });
+        isWheelTicking = true;
+      }
+    }, { passive: false });
     
     // Initial trigger
     window.dispatchEvent(new Event('scroll'));
@@ -407,23 +479,11 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
-// Scroll signatures: velocity marquee
+// Navigation hiding removed per user request: remains sticky always
 const navBar = document.querySelector('.nav');
-const track = document.querySelector('.marquee-track');
-let lastY = scrollY, velTimer = null;
+let lastY = scrollY;
 addEventListener('scroll', () => {
-  const y = scrollY;
-  // Navigation hiding removed per user request: remains sticky always
-  lastY = y;
-  
-  if (track && !calmMotion) {
-    const anims = track.getAnimations();
-    if (anims.length) {
-      anims[0].playbackRate = 4; // smoothly speed up
-      clearTimeout(velTimer);
-      velTimer = setTimeout(() => { anims[0].playbackRate = 1; }, 150);
-    }
-  }
+  lastY = scrollY;
 }, { passive: true });
 const spyLinks = document.querySelectorAll('#navLinks a[href^="#"]');
 const spy = new IntersectionObserver((entries) => {

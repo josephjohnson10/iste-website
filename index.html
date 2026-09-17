@@ -32,7 +32,8 @@
   <link rel="canonical" href="https://iste.cet.ac.in/" />
 
   <!-- Fonts & Styles -->
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -112,7 +113,7 @@
       <div class="spotlight" id="spotlight" aria-hidden="true"></div>
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow reveal"><span class="pulse-dot"></span>Indian Society for Technical Education · CET Chapter</p>
+
           <h1 class="reveal" style="--i:1">Innovate.<br />Inspire.<br /><span class="grad">Impact.</span></h1>
           <p class="muted reveal" style="--i:2">The ISTE Student Chapter at College of Engineering Trivandrum — empowering students with technical skills through workshops, seminars, and hands-on projects.</p>
           <div class="cta-row reveal" style="--i:3">
@@ -254,28 +255,31 @@
           <div class="filters reveal" style="--i:2">
             <button class="chip active" data-filter="all">All</button>
             <button class="chip" data-filter="workshop">Workshops</button>
-            <button class="chip" data-filter="hackathon">Hackathons</button>
-            <button class="chip" data-filter="talk">Talks</button>
+            <button class="chip" data-filter="competition">Competitions</button>
+            <button class="chip" data-filter="ideathon">Ideathons</button>
           </div>
         </div>
         <div class="cards-3 stagger" id="eventGrid">
-          <article class="card event lift reveal" data-type="talk" style="--i:1">
-            <p class="tag">Orientation · 25 Aug 2025</p>
-            <h3>Freshers Orientation &amp; JAM</h3>
-            <p>Welcomed first-year students to the ISTE community, followed by a JAM session to encourage creativity and expression.</p>
+          <article class="card event lift reveal" data-type="ideathon" style="--i:1">
+            <img loading="lazy" src="assets/events/hervision.png" alt="HerVision Ideathon" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px;" />
+            <p class="tag">Ideathon · 20 Aug 2026</p>
+            <h3>HerVision — Women in Tech Ideathon</h3>
+            <p>A women-exclusive ideathon under CANDELA '26 in collaboration with WIT AE Association and Women TechnoHub. Participants identified real-world challenges and pitched technology-driven solutions. Prize pool ₹3,000.</p>
             <button class="btn btn-sm" disabled>Completed</button>
           </article>
-          <article class="card event lift reveal" data-type="hackathon" style="--i:2">
-            <p class="tag">Competition · 27 Feb 2026</p>
-            <h3>DSA Coding Sprint</h3>
-            <p>Conducted as a LeetCode coding competition focused on Data Structures and Algorithms as part of Terrax'26.</p>
+          <article class="card event lift reveal" data-type="competition" style="--i:2">
+            <img loading="lazy" src="assets/events/circuit_techathon.png" alt="Circuit Techathon" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px;" />
+            <p class="tag">Competition · 8 Sep 2026</p>
+            <h3>Circuit Techathon</h3>
+            <p>A circuit-based technical challenge organised as part of SPECTRA – Electronics Department Fest 2026. Teams competed in a written test followed by a circuit design round. Prize pool ₹1,500.</p>
             <button class="btn btn-sm" disabled>Completed</button>
           </article>
-          <article class="card event lift reveal" data-type="hackathon" style="--i:3">
-            <p class="tag">Competition · 6 Sep 2025</p>
-            <h3>Online Treasure Hunt</h3>
-            <p>Featured an engaging online treasure hunt involving puzzles, riddles, and challenging clues as part of Onam celebrations.</p>
-            <button class="btn btn-sm" disabled>Completed</button>
+          <article class="card event lift reveal" data-type="competition" style="--i:3">
+            <img loading="lazy" src="assets/events/pixelcraft.png" alt="PixelCraft" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px;" />
+            <p class="tag">Design Competition · 19 Sep 2026</p>
+            <h3>PixelCraft</h3>
+            <p>A 2-hour individual Figma design competition organised as part of Drishti '26. Theme revealed on the spot — no pre-made templates allowed. KTU activity points awarded. Prize pool ₹3,000.</p>
+            <a href="#contact" class="btn btn-sm">Register Now</a>
           </article>
         </div>
       </div>
@@ -286,7 +290,7 @@
       <div class="team-sticky">
         <div class="container" style="text-align: center; position: absolute; top: 10vh; left: 0; right: 0; z-index: 10;">
           <p class="kicker reveal">Meet The Team</p>
-          <h2 class="reveal" style="font-size: clamp(2rem, 5vw, 4.5rem); text-transform: uppercase;">Core <span class="grad">2025–26</span></h2>
+          <h2 class="reveal" style="font-size: clamp(2rem, 5vw, 4.5rem); text-transform: uppercase;">Core <span class="grad">2026–27</span></h2>
         </div>
         
         <div class="coverflow-container" id="teamCoverflow">
@@ -533,9 +537,9 @@
             College of Engineering Trivandrum · Sreekaryam, Trivandrum – 695016
           </p>
           <div class="socials reveal" style="--i:3">
-            <a href="https://www.instagram.com/iste_sc_cet" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
-            <a href="https://www.linkedin.com/company/iste-sc-cet/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
-            <a href="https://chat.whatsapp.com/GYn2aTp77gnLGBllVCvxHX" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
+            <a href="https://www.instagram.com/iste_sc_cet" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="https://www.linkedin.com/company/iste-sc-cet/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+            <a href="https://chat.whatsapp.com/GYn2aTp77gnLGBllVCvxHX" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
           </div>
         </div>
         <form class="card form reveal" style="--i:2" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
