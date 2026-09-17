@@ -207,7 +207,7 @@ body {
 .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ivory); font-weight: 480; font-size: 16px; }
 .brand-logo {
-  width: 38px; height: 38px;
+  width: 54px; height: 54px;
   object-fit: contain;
   border-radius: 6px;
   filter: brightness(1.1);
@@ -638,9 +638,9 @@ h2.reveal.in { filter: none; }
 
 /* Shravan-style Arch Carousel */
 .arch-section { position: relative; overflow: hidden; padding: 120px 0 160px; text-align: center; }
-.arch-container { position: relative; height: 350px; display: flex; justify-content: center; }
+.arch-container { position: relative; height: 520px; display: flex; justify-content: center; }
 .arch-wheel {
-  position: absolute; top: 120px;
+  position: absolute; top: 180px;
   width: 900px; height: 900px; border-radius: 50%;
   animation: spinWheel 45s linear infinite;
   will-change: transform;

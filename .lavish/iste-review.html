@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ISTE SC CET — Launch Review</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  --onyx:#171721; --graphite:#1e1e2a; --obsidian:#272735;
+  --slate:#70707d; --mist:#e2e3ed; --ash:#c3c3cc; --ivory:#ededf3;
+  --cobalt:#5266eb; --white:#fff;
+  --radius-card:12px; --radius-pill:32px;
+}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--onyx);color:var(--ivory);font-size:15px;line-height:1.55;overflow-x:hidden}
+.container{width:min(1100px,92%);margin:0 auto}
+.nav{position:sticky;top:0;z-index:20;background:rgba(23,23,33,.85);backdrop-filter:blur(20px);border-bottom:1px solid #2a2a3a}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ivory);font-weight:500}
+.brand-badge{background:var(--cobalt);color:var(--white);width:34px;height:34px;display:grid;place-items:center;border-radius:50%;font-size:12px}
+.brand-text em{font-style:normal;color:var(--ash)}
+.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid #33334a;background:var(--graphite);color:var(--ivory);border-radius:var(--radius-pill);padding:8px 16px;font-size:13px;text-decoration:none;min-width:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--cobalt);color:#fff;border:0;border-radius:var(--radius-pill);padding:12px 22px;font-weight:600;text-decoration:none;cursor:pointer;min-height:44px}
+.btn-ghost{background:transparent;border:1px solid #3a3a52;color:var(--ivory)}
+.hero{padding:48px 0 8px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--ash);font-size:13px;border:1px solid #33334a;border-radius:var(--radius-pill);padding:7px 14px;background:var(--graphite);max-width:100%}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--cobalt);flex:none}
+h1{font-size:clamp(32px,5vw,54px);line-height:1.05;margin:18px 0 10px;letter-spacing:-.02em;max-width:16em}
+h2{font-size:26px;margin:0 0 8px;letter-spacing:-.01em}
+h3{font-size:16px;margin:0 0 6px}
+.muted{color:var(--ash)}
+.kicker{color:var(--cobalt);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 6px}
+.section{padding:36px 0}
+.grid{display:grid;gap:16px;grid-template-columns:minmax(0,1fr);min-width:0}
+@media(min-width:860px){.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.card{background:var(--graphite);border:1px solid #2b2b3f;border-radius:var(--radius-card);padding:24px 24px;min-width:0}
+.stat b{font-size:30px;display:block}
+.stat span{color:var(--ash);font-size:13px}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;background:var(--obsidian);border:1px solid #3a3a52;color:var(--mist);border-radius:999px;padding:4px 10px;margin-bottom:8px;max-width:100%;overflow-wrap:anywhere}
+.tag.warn{border-color:var(--cobalt);color:#fff;background:rgba(82,102,235,.18)}
+.table-wrap{overflow-x:auto;border:1px solid #2b2b3f;border-radius:var(--radius-card);background:var(--graphite)}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid #2b2b3f;vertical-align:top;overflow-wrap:anywhere}
+th{color:var(--ash);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+tr:last-child td{border-bottom:0}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px;overflow-wrap:anywhere}
+p,h1,h2,h3,li,td,th,.pill,.tag{overflow-wrap:anywhere}
+img,svg{max-width:100%;height:auto}
+.figure{background:var(--graphite);border:1px solid #2b2b3f;border-radius:var(--radius-card);padding:18px;min-width:0}
+.figure svg{width:100%;height:auto;display:block}
+figcaption{color:var(--ash);font-size:13px;margin-top:10px}
+ul.tight{margin:8px 0;padding-left:20px}
+ul.tight li{margin:4px 0}
+form.question{background:var(--graphite);border:1px solid #2b2b3f;border-radius:var(--radius-card);padding:20px;min-width:0}
+label.opt{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid #33334a;border-radius:10px;margin:8px 0;cursor:pointer;min-width:0}
+label.opt:hover{border-color:var(--cobalt)}
+input[type=checkbox],input[type=radio]{margin-top:3px;accent-color:var(--cobalt)}
+.queue-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.small{font-size:12.5px}
+.foot{padding:28px 0 60px;color:var(--slate);font-size:13px}
+.divider{height:1px;background:#2b2b3f;margin:8px 0 0}
+#file,#diff{min-width:0}
+#file pre,#diff pre{white-space:pre-wrap !important}
+</style>
+</head>
+<body>
+<header class="nav"><div class="container nav-inner">
+<a class="brand" href="#top"><span class="brand-badge">ISTE</span><span class="brand-text">Student Chapter <em>CET · Launch Review</em></span></a>
+<span class="pill"><span class="dot"></span>main · origin/main · cfe03b0</span>
+</div></header>
+
+<main id="top" class="container">
+<div class="hero">
+<p class="eyebrow"><span class="dot"></span>Base build: design + motion first · content placeholders throughout</p>
+<h1>Learn. Build. Lead — <span style="color:var(--ash)">but 13 placeholders block launch.</span></h1>
+<p class="muted" style="max-width:44em">Review surface for <span class="mono">josephjohnson10/iste-website</span> · static site <span class="mono">index.html + styles.css + script.js</span>, no build step. Goal: decide what is real, what is TBD, and the smallest path to a shippable v1.</p>
+<div class="grid grid-4" style="margin-top:18px">
+<div class="card stat"><b>7</b><span>commits on main · all Sep 6</span></div>
+<div class="card stat"><b>13</b><span>TODO comments in index.html</span></div>
+<div class="card stat"><b>8 + 8</b><span>site sections · team placeholders</span></div>
+<div class="card stat"><b style="color:#fff">4 dirty</b><span>modified files not committed</span></div>
+</div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
+<a class="btn" href="#triage">Triage the 13 TODOs</a>
+<a class="btn btn-ghost" href="#sitemap">See site map</a>
+<span class="pill">No build · <span class="mono">python3 -m http.server 8000</span></span>
+</div>
+</div>
+
+<section class="section" id="plan">
+<p class="kicker">Plan · goal / current / target</p>
+<h2>Where we are</h2>
+<div class="grid grid-3">
+<div class="card"><p class="tag">GOAL</p><h3>Shippable chapter site</h3><p class="muted small">Real hero copy + numbers, 3 real events, real 2025–26 roster, real contact + socials, Join wired to a form/backend, gallery or removed.</p></div>
+<div class="card"><p class="tag">CURRENT STATE</p><h3>Polished shell, demo data</h3><p class="muted small">Mercury theme, reveals / counters / filters / countdown all working as front-end demo. Join saves to <span class="mono">localStorage</span>. Register buttons are <span class="mono">alert()</span> demos. Team = 8× “Your Name”. Gallery = 6× grey boxes.</p></div>
+<div class="card"><p class="tag warn">PROPOSAL · smallest v1</p><h3>Fill, wire, cut, freeze</h3><p class="muted small">1) Confirm copy + numbers + HackNight date. 2) Replace 3 event cards, 8 people, FAQ, contact. 3) Point Join to Google Form. 4) Hide gallery until photos arrive. 5) Freeze motion, then PR with screenshots.</p></div>
+</div>
+</section>
+
+<section class="section" id="sitemap">
+<p class="kicker">Diagram · what the code actually builds</p>
+<h2>Site map from index.html</h2>
+<div class="figure">
+<svg viewBox="0 0 900 250" role="img" aria-label="Site section flow">
+<title>Site section flow</title>
+<g font-family="Inter,system-ui,sans-serif" font-size="12">
+<rect id="node-hero" x="8" y="60" width="100" height="70" rx="12" fill="#272735" stroke="#5266eb" stroke-width="2"><title>Hero (#home) — headline, stats, HackNight countdown panel</title></rect>
+<text x="58" y="88" text-anchor="middle" fill="#ededf3">Home</text><text x="58" y="106" text-anchor="middle" fill="#c3c3cc" font-size="10">hero + countdown</text>
+<rect id="node-about" x="120" y="60" width="100" height="70" rx="12" fill="#1e1e2a" stroke="#3a3a52"><title>About — 3 cards: Workshops, Hackathons, Talks</title></rect>
+<text x="170" y="88" text-anchor="middle" fill="#ededf3">About</text><text x="170" y="106" text-anchor="middle" fill="#c3c3cc" font-size="10">3 cards</text>
+<rect id="node-events" x="232" y="60" width="100" height="70" rx="12" fill="#1e1e2a" stroke="#3a3a52"><title>Events — filter chips All/Workshop/Hackathon/Talks, 3 real + 3 TBD cards</title></rect>
+<text x="282" y="88" text-anchor="middle" fill="#ededf3">Events</text><text x="282" y="106" text-anchor="middle" fill="#c3c3cc" font-size="10">3 real + 3 TBD</text>
+<rect id="node-team" x="344" y="60" width="100" height="70" rx="12" fill="#1e1e2a" stroke="#c35555"><title>Team — 8 placeholder cards, old roster only in HTML comment</title></rect>
+<text x="394" y="88" text-anchor="middle" fill="#ededf3">Team</text><text x="394" y="106" text-anchor="middle" fill="#c3c3cc" font-size="10">8 × TBD ⚠</text>
+<rect id="node-gallery" x="456" y="60" width="100" height="70" rx="12" fill="#1e1e2a" stroke="#c35555"><title>Gallery — 6 grey .ph boxes, no images yet</title></rect>
+<text x="506" y="88" text-anchor="middle" fill="#ededf3">Gallery</text><text x="506" y="106" text-anchor="middle" fill="#c3c3cc" font-size="10">0 photos ⚠</text>
+<rect id="node-faq" x="568" y="60" width="100" height="70" rx="12" fill="#1e1e2a" stroke="#3a3a52"><title>FAQ — 4 placeholder answers</title></rect>
+<text x="618" y="88" text-anchor="middle" fill="#ededf3">FAQ</text><text x="618" y="106" text-anchor="middle" fill="#c3c3cc" font-size="10">4 placeholders</text>
+<rect id="node-join" x="680" y="60" width="100" height="70" rx="12" fill="#272735" stroke="#5266eb" stroke-width="2"><title>Join — form writes to localStorage only, needs backend or Google Form</title></rect>
+<text x="730" y="88" text-anchor="middle" fill="#ededf3">Join</text><text x="730" y="106" text-anchor="middle" fill="#c3c3cc" font-size="10">localStorage ⚠</text>
+<rect id="node-contact" x="792" y="60" width="100" height="70" rx="12" fill="#1e1e2a" stroke="#3a3a52"><title>Contact — iste@college.edu placeholder, socials are # links</title></rect>
+<text x="842" y="88" text-anchor="middle" fill="#ededf3">Contact</text><text x="842" y="106" text-anchor="middle" fill="#c3c3cc" font-size="10">email TBD</text>
+<g stroke="#5266eb" stroke-width="1.5" opacity=".7">
+<line x1="108" y1="95" x2="120" y2="95"/><line x1="220" y1="95" x2="232" y2="95"/><line x1="332" y1="95" x2="344" y2="95"/><line x1="444" y1="95" x2="456" y2="95"/><line x1="556" y1="95" x2="568" y2="95"/><line x1="668" y1="95" x2="680" y2="95"/><line x1="780" y1="95" x2="792" y2="95"/>
+</g>
+<text x="8" y="170" fill="#70707d" font-size="11">Sticky nav anchors to all 8 · scroll-progress + spotlight + reveal + counters + filters (script.js) · old roster + old contact live only in HTML comments, not on screen.</text>
+<text x="8" y="200" fill="#70707d" font-size="11">Git workflow (README): main ← yourname-feature → PR (screenshots required) → only @josephjohnson10 approves → squash &amp; merge → pull main.</text>
+</g>
+</svg>
+<figcaption>Every node is annotatable — click a box to comment. Red borders = launch blockers. Source: <span class="mono">index.html:35–311</span>, <span class="mono">script.js:1–80</span>.</figcaption>
+</div>
+</section>
+
+<section class="section" id="git">
+<p class="kicker">Table · provenance</p>
+<h2>Git history — 7 commits, then local edits</h2>
+<p class="muted small">Branch <span class="mono">main</span> tracks <span class="mono">origin/main</span> at <span class="mono">cfe03b0</span>. Working tree has 4 modified + 7 untracked files. Nothing after Sep 6 is committed.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Hash</th><th>Date</th><th>Message</th><th>What to read</th></tr></thead>
+<tbody>
+<tr><td class="mono">cfe03b0</td><td class="mono">2026-09-06</td><td>chore: gitignore + team README (#3)</td><td>HEAD · origin/main · workflow + PR rules live here</td></tr>
+<tr><td class="mono">0f1be84</td><td class="mono">2026-09-06</td><td>Merge PR #2 add-owner</td><td>Code-owner gate: only @josephjohnson10 counts</td></tr>
+<tr><td class="mono">283028d</td><td class="mono">2026-09-06</td><td>add code owner</td><td>Review gate</td></tr>
+<tr><td class="mono">53330c6</td><td class="mono">2026-09-06</td><td>Initial commit</td><td>—</td></tr>
+<tr><td class="mono">b498e02</td><td class="mono">2026-09-06</td><td>git workflow</td><td>Early workflow doc</td></tr>
+<tr><td class="mono">6105d6b</td><td class="mono">2026-09-06</td><td>initial commit</td><td>—</td></tr>
+<tr><td class="mono">75cd897</td><td class="mono">2026-09-06</td><td>Initial commit</td><td>Root commit</td></tr>
+</tbody>
+</table></div>
+</section>
+
+<section class="section" id="triage">
+<p class="kicker">Table + input · the launch gap</p>
+<h2>Triage the 13 TODOs</h2>
+<p class="muted small">Grouped by the decision they need. Check items, then queue one batch — the agent must account for every submitted ID.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>ID</th><th>Location</th><th>Placeholder</th><th>Decision needed</th></tr></thead>
+<tbody>
+<tr><td class="mono">T-01</td><td class="mono">index.html:6</td><td>title + meta copy</td><td>Final wording?</td></tr>
+<tr><td class="mono">T-02</td><td class="mono">index.html:41,44</td><td>eyebrow + hero sub-copy</td><td>Keep “No experience needed”?</td></tr>
+<tr><td class="mono">T-03</td><td class="mono">index.html:51</td><td>500+ / 30+ / 15+ stats</td><td>Real numbers or hide?</td></tr>
+<tr><td class="mono">T-04</td><td class="mono">index.html:66</td><td>HackNight date/venue/prizes</td><td>Oct 12–13 CSE Block confirmed?</td></tr>
+<tr><td class="mono">T-05</td><td class="mono">index.html:98,104</td><td>About copy + tracks</td><td>Real tracks list?</td></tr>
+<tr><td class="mono">T-06</td><td class="mono">index.html:136</td><td>Event calendar (3 TBD cards)</td><td>Real dates or cut to 3?</td></tr>
+<tr><td class="mono">T-07</td><td class="mono">index.html:179</td><td>Team roster + photos</td><td>2025–26 list? Old names outdated.</td></tr>
+<tr><td class="mono">T-08</td><td class="mono">index.html:202</td><td>Gallery (6 grey boxes)</td><td>Hide until photos arrive?</td></tr>
+<tr><td class="mono">T-09</td><td class="mono">index.html:219</td><td>FAQ (4 answers)</td><td>Real answers?</td></tr>
+<tr><td class="mono">T-10</td><td class="mono">index.html:256</td><td>Join → localStorage demo</td><td>Google Form URL or backend?</td></tr>
+<tr><td class="mono">T-11</td><td class="mono">index.html:287,295</td><td>Contact email/room/socials</td><td>iste@cet.ac.in? Room 204? Links?</td></tr>
+</tbody>
+</table></div>
+
+<div class="grid grid-2" style="margin-top:16px">
+<form class="question" data-lavish-question="todo-batch" onsubmit="event.preventDefault(); const s=[...event.currentTarget.querySelectorAll('input[name=items]:checked')].map(i=>({id:i.value,label:i.dataset.label,disposition:i.dataset.disposition})); if(!s.length){alert('Tick at least one TODO first.');return;} window.lavish.queuePrompt('Fill/cut every selected TODO and return an item-by-item receipt. Account for every submitted ID before reporting completion.',{tag:'tracked-batch',text:'Triage '+s.length+' TODOs: '+s.map(x=>x.id).join(', '),element:event.currentTarget,data:{items:s}}); event.currentTarget.querySelector('.queued').textContent='Queued '+s.length+' items — press Send to Agent.';">
+<h3>Batch-triage TODOs</h3>
+<p class="muted small">Tick, then queue once. Reversible until you send.</p>
+<label class="opt"><input type="checkbox" name="items" value="T-03" data-label="Confirm or hide hero stats" data-disposition="must-address"><span><b class="mono">T-03</b> — hero stats · confirm numbers or hide</span></label>
+<label class="opt"><input type="checkbox" name="items" value="T-04" data-label="Confirm HackNight details" data-disposition="must-address"><span><b class="mono">T-04</b> — HackNight date/venue/prizes</span></label>
+<label class="opt"><input type="checkbox" name="items" value="T-07" data-label="Replace team roster" data-disposition="must-address"><span><b class="mono">T-07</b> — 8 real names/roles/photos</span></label>
+<label class="opt"><input type="checkbox" name="items" value="T-08" data-label="Hide gallery until photos" data-disposition="must-address"><span><b class="mono">T-08</b> — gallery: hide vs keep skeletons</span></label>
+<label class="opt"><input type="checkbox" name="items" value="T-10" data-label="Wire Join form" data-disposition="must-address"><span><b class="mono">T-10</b> — Join backend / Form URL</span></label>
+<label class="opt"><input type="checkbox" name="items" value="T-11" data-label="Confirm contact block" data-disposition="must-address"><span><b class="mono">T-11</b> — email / room / socials</span></label>
+<div class="queue-row"><button class="btn" type="submit">Queue selected TODOs</button><span class="queued muted small"></span></div>
+</form>
+
+<form class="question" data-lavish-question="v1-scope" onsubmit="event.preventDefault(); const c=new FormData(event.currentTarget).get('scope'); if(!c){alert('Pick one scope.');return;} window.lavish.queuePrompt('Proceed with the '+c+' v1 scope.',{tag:'choice',text:'V1 scope: '+c,element:event.currentTarget,data:{question:'v1-scope',answer:c}});">
+<h3>Choose v1 scope</h3>
+<p class="muted small">One decision drives the next PR.</p>
+<label class="opt"><input type="radio" name="scope" value="Fill everything"><span><b>Fill everything</b> <span class="muted">— slowest, needs all content now</span></span></label>
+<label class="opt"><input type="radio" name="scope" value="Fill + hide gallery" checked><span><b>Fill + hide gallery</b> <span class="muted">— recommended, photos later</span></span></label>
+<label class="opt"><input type="radio" name="scope" value="Landing only"><span><b>Landing only</b> <span class="muted">— hero + events + join, cut rest</span></span></label>
+<div class="queue-row"><button class="btn btn-ghost" type="submit">Queue this answer</button></div>
+</form>
+</div>
+</section>
+
+<section class="section" id="code">
+<p class="kicker">Code · evidence, not prose</p>
+<h2>Two concrete edits that unblock launch</h2>
+<p class="muted small">Rendered with <span class="mono">@pierre/diffs</span> per the code playbook — annotate any line. Paths + reasons first.</p>
+<p class="small"><b>File 1 — <span class="mono">index.html:295</span></b> · why: contact email shows a placeholder + TBD badge on screen. Old site used <span class="mono">iste@cet.ac.in</span> (see comment at <span class="mono">index.html:287</span>).</p>
+<div id="file"></div>
+<p class="small" style="margin-top:18px"><b>Diff — <span class="mono">index.html:295</span></b> · proposed: swap placeholder for the CET address and drop the TBD badge. Split view for careful review.</p>
+<div id="diff"></div>
+<script type="module">
+import { File, FileDiff } from "https://esm.sh/@pierre/diffs@1.2.10?bundle";
+const theme = { light: "github-light", dark: "github-dark" };
+const options = { theme, themeType: "dark", overflow: "wrap" };
+const oldFile = { name: "index.html:295", contents: "<p class=\"muted\">Email: <a href=\"mailto:iste@college.edu\">iste@college.edu</a> <button>Copy</button> <span class=\"tbd-tag\">TBD</span><br />Room 204, CSE Block \u00b7 Mon\u2013Fri 4\u20136pm <span class=\"tbd-tag\">TBD</span></p>\n" };
+const newFile = { name: "index.html:295", contents: "<p class=\"muted\">Email: <a href=\"mailto:iste@cet.ac.in\">iste@cet.ac.in</a> <button>Copy</button><br />Room 204, CSE Block \u00b7 Mon\u2013Fri 4\u20136pm</p>\n" };
+new File(options).render({ containerWrapper: document.querySelector("#file"), file: newFile });
+new FileDiff({ ...options, diffStyle: "split" }).render({ containerWrapper: document.querySelector("#diff"), oldFile, newFile });
+</script>
+<ul class="tight muted small">
+<li><span class="mono">script.js:50–58</span> — Register buttons fire <span class="mono">alert()</span> demos; needs real links before launch.</li>
+<li><span class="mono">script.js:63–71</span> — Join writes to <span class="mono">localStorage key iste_members</span>; replace with Form POST.</li>
+<li>Untracked <span class="mono">style.md</span> is the Lenis smooth-scroll README, not the Mercury spec — the real spec is the comment header in <span class="mono">styles.css:1–10</span>.</li>
+</ul>
+</section>
+
+<section class="section" id="risks">
+<p class="kicker">Risks · open questions</p>
+<h2>Don’t ship without these</h2>
+<div class="grid grid-3">
+<div class="card"><p class="tag warn">RISK</p><h3>Fake numbers + names on screen</h3><p class="muted small">500+ members and 8 “Your Name” cards read as real. Either confirm or remove before any public link.</p></div>
+<div class="card"><p class="tag warn">RISK</p><h3>Forms go nowhere</h3><p class="muted small">Join and Contact show success but store locally / discard. Needs a Form URL or the submit buttons must be disabled.</p></div>
+<div class="card"><p class="tag">WORKFLOW</p><h3>PRs need screenshots</h3><p class="muted small">README requires before/after screenshots + click-to-verify steps, and only <span class="mono">@josephjohnson10</span> can approve. Dirty files (<span class="mono">index.html, script.js, styles.css, .gitignore</span>) should be committed on a <span class="mono">name-what</span> branch first.</p></div>
+</div>
+</section>
+
+<div class="divider"></div>
+<div class="foot">Design source: <b style="color:var(--ash)">(2) matched the subject project’s Mercury system</b> — onyx/graphite/obsidian + ivory/ash + single cobalt accent, 12px cards, pill controls, no shadows — from <span class="mono">styles.css:1–46</span>. DaisyUI fallback was deliberately not used. Annotate anything, queue prompts, then Send to Agent.</div>
+</main>
+</body>
+</html>
