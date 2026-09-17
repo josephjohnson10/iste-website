@@ -543,12 +543,17 @@
             <a href="https://chat.whatsapp.com/GYn2aTp77gnLGBllVCvxHX" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
           </div>
         </div>
-        <form class="card form reveal" style="--i:2" id="contactForm">
+        <form class="card form reveal" style="--i:2" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="f93cff16-b416-4bcb-8f68-2313ebab6f33">
+          <input type="hidden" name="subject" value="ISTE Website Query">
+          <input type="hidden" name="from_name" value="ISTE Website">
+          <input type="checkbox" name="botcheck" style="display: none;">
+          
           <label>Name<input required placeholder="Your name" name="name" /></label>
           <label>Email<input required type="email" placeholder="name@cet.ac.in" name="email" /></label>
           <label>Message<textarea required rows="4" placeholder="How can we help?" name="message"></textarea></label>
           <button class="btn btn-block" type="submit">Send</button>
-          <p class="muted small" id="contactMsg"></p>
+          <p class="muted small" id="contactMsg" style="margin-top: 8px;"></p>
         </form>
       </div>
     </section>

@@ -132,13 +132,42 @@ document.querySelectorAll('[data-register]').forEach(btn => {
 });
 
 // Join form -> localStorage demo
-// Contact form demo
+// Contact form Web3Forms integration
 const contactForm = document.getElementById('contactForm');
 const contactMsg = document.getElementById('contactMsg');
-contactForm?.addEventListener('submit', (e) => {
+contactForm?.addEventListener('submit', async (e) => {
   e.preventDefault();
-  contactMsg.textContent = 'Message noted! We usually reply within 2 days. (demo)';
-  contactForm.reset();
+  const btn = contactForm.querySelector('button[type="submit"]');
+  const originalBtnText = btn.textContent;
+  btn.textContent = 'Sending...';
+  contactMsg.textContent = '';
+  contactMsg.style.color = '';
+
+  try {
+    const formData = new FormData(contactForm);
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData
+    });
+    const data = await response.json();
+
+    if (data.success) {
+      contactMsg.textContent = 'Message sent successfully! We will get back to you soon.';
+      contactMsg.style.color = '#a3e635'; // Soft green
+      contactForm.reset();
+    } else {
+      contactMsg.textContent = 'Something went wrong. Please try again.';
+      contactMsg.style.color = '#ef4444'; // Red
+    }
+  } catch (error) {
+    contactMsg.textContent = 'Network error. Please try again later.';
+    contactMsg.style.color = '#ef4444';
+  } finally {
+    btn.textContent = originalBtnText;
+    setTimeout(() => {
+      contactMsg.textContent = '';
+    }, 5000);
+  }
 });
 
 // Countdown to PIXELCRAFT 2026 (Sept 19)
