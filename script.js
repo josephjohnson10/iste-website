@@ -547,9 +547,9 @@ document.querySelectorAll('.copy-btn').forEach(btn => {
     const text = btn.dataset.copy || '';
     try { await navigator.clipboard.writeText(text); }
     catch { const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); }
-    const old = btn.textContent;
-    btn.textContent = 'Copied ✓';
-    setTimeout(() => { btn.textContent = old; }, 1600);
+    const oldHTML = btn.innerHTML;
+    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8ab4f8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+    setTimeout(() => { btn.innerHTML = oldHTML; }, 1600);
   });
 });
 
