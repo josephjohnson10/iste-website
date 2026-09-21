@@ -682,11 +682,11 @@ h2.reveal.in { filter: none; }
 
 @media (max-width: 900px) {
   /* Scatter / ISTE Moments — restore original scroll animation */
-  .polaroid-text { font-size: 11px; padding: 0 4px; line-height: 1.1; }
+  .polaroid-text { font-size: 12px; padding: 0 4px; line-height: 1.1; }
 
   .scatter-container { top: 65% !important; }
   .scatter-card { 
-    width: 120px; height: 160px; margin-top: -80px; margin-left: -60px;
+    width: 140px; height: 185px; margin-top: -92.5px; margin-left: -70px;
     transform: 
       translate(
         calc(var(--tx) * var(--scroll-p, 0)), 
