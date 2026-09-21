@@ -975,15 +975,12 @@ footer { padding: 56px 0 32px; border-top: 1px solid var(--graphite); color: var
 @media (max-width: 900px) {
   .hero-grid, .join-grid, .contact-grid { grid-template-columns: 1fr; }
   .cards-3, .cards-4, .gallery-grid { grid-template-columns: 1fr 1fr; }
-  .csa-sticky-container { justify-content: flex-start; padding-top: 15vh; }
-  #events { margin-top: -30vh; position: relative; z-index: 20; }
+  .about-csa-section { margin-top: -15vh; }
+  #events { margin-top: -10vh; position: relative; z-index: 20; }
   .csa-line { display: none; display: none; }
 }
 @media (max-width: 560px) {
   .cards-3, .cards-4, .gallery-grid { grid-template-columns: 1fr; }
-  .csa-sticky-container { justify-content: flex-start; padding-top: 15vh; }
-  #events { margin-top: -30vh; position: relative; z-index: 20; }
-  .csa-line { display: none; display: none; }
   .hero { padding: 64px 0 48px; }
   .section { padding: 56px 0; }
 }
