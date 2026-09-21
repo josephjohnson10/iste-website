@@ -674,7 +674,7 @@ h2.reveal.in { filter: none; }
 .ph:hover span { transform: scale(1.1); }
 
 @media (max-width: 900px) {
-  .scatter-container { transform: scale(0.6); }
+  .scatter-card { width: 160px; height: 210px; margin-top: -105px; margin-left: -80px; }
   .arch-container { height: 320px; }
   .arch-wheel { top: 80px; width: 600px; height: 600px; }
   .arch-item {
