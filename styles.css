@@ -689,11 +689,19 @@ h2.reveal.in { filter: none; }
     width: 120px; height: 160px; margin-top: -80px; margin-left: -60px;
     transform: 
       translate(
-        calc(var(--tx) * var(--scroll-p, 0) * 2.4), 
-        calc(var(--ty) * var(--scroll-p, 0) * 2.6)
+        calc(var(--tx) * var(--scroll-p, 0)), 
+        calc(var(--ty) * var(--scroll-p, 0))
       ) 
       rotate(calc(var(--rot) * var(--scroll-p, 0)));
   }
+  
+  /* Hard-clamp mobile bounds so cards NEVER fly off any screen size */
+  .scatter-card:nth-child(1) { --tx: -26vw !important; --ty: -20vh !important; }
+  .scatter-card:nth-child(2) { --tx: 18vw !important;  --ty: -18vh !important; }
+  .scatter-card:nth-child(3) { --tx: -15vw !important; --ty: -5vh !important;  }
+  .scatter-card:nth-child(4) { --tx: 25vw !important;  --ty: 6vh !important;   }
+  .scatter-card:nth-child(5) { --tx: -20vw !important; --ty: 16vh !important;  }
+  .scatter-card:nth-child(6) { --tx: 12vw !important;  --ty: 22vh !important;  }
 
   /* Awards — restore scroll animation but scale down slightly to avoid title collision */
   .skiper34-card {
