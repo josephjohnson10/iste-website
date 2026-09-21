@@ -965,6 +965,12 @@ footer { padding: 56px 0 32px; border-top: 1px solid var(--graphite); color: var
   .orbit-chip { display: none; }
   .links { display: none; flex-direction: column; position: absolute; right: 4%; top: 70px; background: var(--graphite); z-index: 200; padding: 12px; border-radius: var(--radius-card); }
   .links.open { display: flex; }
+  /* Flatten 3D nav menu on mobile to fix rendering glitches */
+  .links a:not(.btn) { perspective: none; height: auto; width: 100%; text-align: center; padding: 8px 0; }
+  .links a:not(.btn) .cube { transform-style: flat; height: auto; transform: none !important; }
+  .links a:not(.btn) .face.bottom { display: none; }
+  .links a:not(.btn) .face.front { transform: none; padding: 0; height: auto; background: transparent !important; }
+  .links a.active:not(.btn) .face.front { color: var(--cobalt); font-weight: 700; }
   .menu-btn { display: block; }
 }
 @media (max-width: 560px) {
