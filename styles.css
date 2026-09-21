@@ -693,36 +693,6 @@ h2.reveal.in { filter: none; }
       rotate(calc(var(--rot) * var(--scroll-p, 0)));
   }
 
-  /* Awards — fix the sticky card stack glitch on mobile */
-  #student-achievements {
-    height: auto !important;
-  }
-  #student-achievements .scatter-sticky {
-    position: static !important;
-    height: auto !important;
-    overflow: visible !important;
-    padding: 80px 16px 40px;
-  }
-  #student-achievements .skiper34-scene {
-    position: static !important;
-    width: 100% !important;
-    height: auto !important;
-    display: flex !important;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: center;
-  }
-  #student-achievements .skiper34-card {
-    position: static !important;
-    transform: none !important;
-    opacity: 1 !important;
-    width: calc(50% - 8px);
-    max-width: 180px;
-    aspect-ratio: 4 / 5;
-    top: auto !important; left: auto !important;
-    margin: 0 !important;
-  }
-
   .arch-container { height: 320px; }
   .arch-wheel { top: 80px; width: 600px; height: 600px; }
   .arch-item {
