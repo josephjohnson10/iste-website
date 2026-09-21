@@ -682,13 +682,15 @@ h2.reveal.in { filter: none; }
 
 @media (max-width: 900px) {
   /* Scatter / ISTE Moments — restore original scroll animation */
+  .polaroid-text { font-size: 11px; padding: 0 4px; line-height: 1.1; }
+
   .scatter-container { top: 65% !important; }
   .scatter-card { 
-    width: 160px; height: 210px; margin-top: -105px; margin-left: -80px;
+    width: 120px; height: 160px; margin-top: -80px; margin-left: -60px;
     transform: 
       translate(
-        calc(var(--tx) * var(--scroll-p, 0) * 2), 
-        calc(var(--ty) * var(--scroll-p, 0) * 2.2)
+        calc(var(--tx) * var(--scroll-p, 0) * 2.4), 
+        calc(var(--ty) * var(--scroll-p, 0) * 2.6)
       ) 
       rotate(calc(var(--rot) * var(--scroll-p, 0)));
   }
