@@ -365,7 +365,7 @@ body {
 .orb { display: none; }
 
 /* marquee */
-.marquee { border-top: 1px solid var(--graphite); border-bottom: 1px solid var(--graphite); overflow: hidden; padding: 24px 0; }
+.marquee { border-top: 1px solid rgba(255,255,255,0.15); border-bottom: 1px solid rgba(255,255,255,0.15); overflow: hidden; padding: 24px 0; }
 .marquee-track { display: flex; width: max-content; animation: slide 26s linear infinite; will-change: transform; }
 .marquee-set { display: flex; gap: 64px; padding-right: 64px; align-items: center; }
 .marquee-set span { 
@@ -382,7 +382,7 @@ body {
 
 /* sections */
 .section { padding: var(--gap-section) 0; }
-.section.alt { background: rgba(0,0,0,.16); border-top: 1px solid var(--graphite); border-bottom: 1px solid var(--graphite); }
+.section.alt { background: rgba(0,0,0,.16); border-top: 1px solid rgba(255,255,255,0.15); border-bottom: 1px solid rgba(255,255,255,0.15); }
 .kicker { color: var(--ash); text-transform: uppercase; letter-spacing: .1em; font-size: 13px; font-weight: 400; margin: 0 0 10px; }
 h1, h2, h3, h4, h5, h6 { font-family: 'Outfit', sans-serif; }
 h1 { font-size: clamp(2.6rem, 5.6vw, 4.1rem); line-height: 1.1; letter-spacing: .01em; font-weight: 800; margin: 0 0 16px; color: var(--ivory); max-width: 640px; }
@@ -976,11 +976,13 @@ footer { padding: 56px 0 32px; border-top: 1px solid var(--graphite); color: var
   .hero-grid, .join-grid, .contact-grid { grid-template-columns: 1fr; }
   .cards-3, .cards-4, .gallery-grid { grid-template-columns: 1fr 1fr; }
   .csa-sticky-container { justify-content: flex-start; padding-top: 15vh; }
+  #events { margin-top: -30vh; position: relative; z-index: 20; }
   .csa-line { display: none; display: none; }
 }
 @media (max-width: 560px) {
   .cards-3, .cards-4, .gallery-grid { grid-template-columns: 1fr; }
   .csa-sticky-container { justify-content: flex-start; padding-top: 15vh; }
+  #events { margin-top: -30vh; position: relative; z-index: 20; }
   .csa-line { display: none; display: none; }
   .hero { padding: 64px 0 48px; }
   .section { padding: 56px 0; }
