@@ -674,13 +674,14 @@ h2.reveal.in { filter: none; }
 .ph:hover span { transform: scale(1.1); }
 
 @media (max-width: 900px) {
+  .scatter-container { top: 65% !important; }
   .scatter-card { 
     width: 160px; height: 210px; margin-top: -105px; margin-left: -80px; 
     /* Multiply the spread distances on mobile so they don't clump */
     transform: 
       translate(
         calc(var(--tx) * var(--scroll-p, 0) * 2), 
-        calc(var(--ty) * var(--scroll-p, 0) * 2.5)
+        calc(var(--ty) * var(--scroll-p, 0) * 2.2)
       ) 
       rotate(calc(var(--rot) * var(--scroll-p, 0)));
   }
