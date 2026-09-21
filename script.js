@@ -267,13 +267,11 @@ if (!calmMotion) {
         
         const absOffset = Math.abs(offset);
         
-        // Math for continuous 3D coverflow
-        const tx = offset * 80 + Math.sign(offset) * Math.min(absOffset, 1) * 30; // % horizontal shift
-        const tz = -absOffset * 150; // push depth
-        const ry = -Math.max(-55, Math.min(55, offset * 55)); // rotation angle clamped
-        const scale = Math.max(0.7, 1 - absOffset * 0.1); // scale down when away
+        // Math for simple horizontal scroll (no heavy 3D)
+        const tx = offset * 105; // 105% horizontal shift per card
+        const scale = Math.max(0.8, 1 - absOffset * 0.15); // Scale down side cards slightly
         
-        card.style.transform = `translateX(${tx}%) translateZ(${tz}px) rotateY(${ry}deg) scale(${scale})`;
+        card.style.transform = `translateX(${tx}%) scale(${scale})`;
         card.style.zIndex = 100 - Math.round(absOffset * 10);
         
         // Fade out cards completely before they wrap around the back
