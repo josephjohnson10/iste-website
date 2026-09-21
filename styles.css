@@ -681,46 +681,48 @@ h2.reveal.in { filter: none; }
 .ph:hover span { transform: scale(1.1); }
 
 @media (max-width: 900px) {
-  /* Replace broken scatter animation with a clean static grid on mobile */
-  .scatter-section {
-    height: auto !important;
-    margin-top: 40px;
-    padding-bottom: 40px;
+  /* Scatter / ISTE Moments — restore original scroll animation */
+  .scatter-container { top: 65% !important; }
+  .scatter-card { 
+    width: 160px; height: 210px; margin-top: -105px; margin-left: -80px;
+    transform: 
+      translate(
+        calc(var(--tx) * var(--scroll-p, 0) * 2), 
+        calc(var(--ty) * var(--scroll-p, 0) * 2.2)
+      ) 
+      rotate(calc(var(--rot) * var(--scroll-p, 0)));
   }
-  .scatter-sticky {
+
+  /* Awards — fix the sticky card stack glitch on mobile */
+  #student-achievements {
+    height: auto !important;
+  }
+  #student-achievements .scatter-sticky {
     position: static !important;
     height: auto !important;
     overflow: visible !important;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    display: block;
+    padding: 80px 16px 40px;
   }
-  .scatter-title-wrap {
+  #student-achievements .skiper34-scene {
     position: static !important;
-    text-align: center;
-    margin-bottom: 20px;
-    pointer-events: auto;
-  }
-  .scatter-container {
-    position: static !important;
-    top: auto !important; left: auto !important;
-    width: 100% !important; height: auto !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr;
+    width: 100% !important;
+    height: auto !important;
+    display: flex !important;
+    flex-wrap: wrap;
     gap: 16px;
-    padding: 0 16px;
-    box-sizing: border-box;
+    justify-content: center;
   }
-  .scatter-card {
+  #student-achievements .skiper34-card {
     position: static !important;
-    width: 100% !important; height: auto !important;
-    margin: 0 !important;
-    transform: rotate(var(--rot)) !important;
+    transform: none !important;
     opacity: 1 !important;
+    width: calc(50% - 8px);
+    max-width: 180px;
+    aspect-ratio: 4 / 5;
+    top: auto !important; left: auto !important;
+    margin: 0 !important;
   }
-  .polaroid {
-    height: 200px;
-  }
+
   .arch-container { height: 320px; }
   .arch-wheel { top: 80px; width: 600px; height: 600px; }
   .arch-item {
