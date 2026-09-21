@@ -693,6 +693,12 @@ h2.reveal.in { filter: none; }
       rotate(calc(var(--rot) * var(--scroll-p, 0)));
   }
 
+  /* Awards — restore scroll animation but scale down slightly to avoid title collision */
+  .skiper34-card {
+    max-width: 260px !important;
+    top: 55% !important;
+  }
+
   .arch-container { height: 320px; }
   .arch-wheel { top: 80px; width: 600px; height: 600px; }
   .arch-item {
