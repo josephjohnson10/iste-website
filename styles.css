@@ -17,6 +17,7 @@ body.loaded #preloader { opacity: 0; visibility: hidden; pointer-events: none; }
   position: relative;
   width: 240px; height: 240px;
   transform-style: preserve-3d;
+
   animation: drishti-spin 3s linear infinite;
 }
 
@@ -229,6 +230,7 @@ body {
   display: block;
   position: relative;
   transform-style: preserve-3d;
+
   transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
   height: 40px;
 }
@@ -386,7 +388,6 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Outfit', sans-serif; }
 h1 { font-size: clamp(2.6rem, 5.6vw, 4.1rem); line-height: 1.1; letter-spacing: .01em; font-weight: 800; margin: 0 0 16px; color: var(--ivory); max-width: 640px; }
 h2 { margin: 0 0 12px; font-size: clamp(2rem, 3.4vw, 2.6rem); font-weight: 700; line-height: 1.15; letter-spacing: .01em; color: var(--ivory); }
 h3 { font-weight: 700; color: var(--ivory); letter-spacing: .01em; }
-.section-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
 
 /* reveal */
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1), filter .6s ease; transition-delay: calc(var(--i, 0) * 80ms); }
@@ -474,6 +475,7 @@ h2.reveal.in { filter: none; }
   align-items: center;
   perspective: 1200px;
   transform-style: preserve-3d;
+
 }
 }
 .coverflow-track {
@@ -481,6 +483,7 @@ h2.reveal.in { filter: none; }
   top: 50%; left: 50%;
   width: 0; height: 0;
   transform-style: preserve-3d;
+
 }
 .coverflow-card {
   position: absolute;
@@ -944,7 +947,8 @@ footer { padding: 56px 0 32px; border-top: 1px solid var(--graphite); color: var
 .foot { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 
 /* tilt + magnetic + parallax */
-.tilt { transform-style: preserve-3d; will-change: transform; }
+.tilt { transform-style: preserve-3d;
+ will-change: transform; }
 .magnetic { will-change: transform; }
 [data-plx] { will-change: transform; }
 
@@ -1127,3 +1131,78 @@ footer { padding: 56px 0 32px; border-top: 1px solid var(--graphite); color: var
   line-height: 1.6;
   font-family: 'DM Sans', sans-serif;
 }
+
+/* Static Polaroid Grid */
+.static-polaroid {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), z-index 0.4s step-end;
+}
+.static-polaroid:hover {
+  transform: scale(1.15) rotate(0deg) !important;
+  z-index: 100 !important;
+  background: #232332;
+}
+.static-polaroid:hover img {
+  filter: grayscale(0%);
+}
+
+/* Skiper34 GSAP-style Sticky Card Stack */
+.skiper34-scene {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.skiper34-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90vw;
+  max-width: 340px;
+  aspect-ratio: 4 / 5;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  will-change: transform, opacity;
+  
+  /* Math: Scroll-p is 0 to 1 over 400vh. 8 cards. Each takes 1/8th of scroll. */
+  --progress: calc(var(--scroll-p, 0) * 8.5); 
+  
+  /* in-p: 0 to 1 as the card flies in from the bottom */
+  --in-p: clamp(0, calc(var(--progress) - var(--i)), 1);
+  
+  /* stack-depth: 0 to 7 as subsequent cards pile on top of this one */
+  --stack-depth: clamp(0, calc(var(--progress) - var(--i) - 1), 7);
+  
+  /* Base Entrance Physics (Fly in from bottom with slight rotation) */
+  --y-enter: calc( 100vh - 100vh * var(--in-p) );
+  --rot-enter: calc( 15deg - 15deg * var(--in-p) );
+  
+  /* Stack Settling Physics (Push DOWN slightly so buried cards don't hit the title) */
+  --y-stack: calc( 25px * var(--stack-depth) );
+  --scale-stack: calc( 1 - 0.05 * var(--stack-depth) );
+  
+  transform: 
+    translate(-50%, -50%)
+    translateY(calc( var(--y-enter) + var(--y-stack) ))
+    scale(var(--scale-stack))
+    rotate(calc( var(--rot-enter) + var(--rot-stack) ));
+    
+  /* Card starts invisible, fades in quickly, then fades out deeply as it gets buried */
+  opacity: calc( var(--in-p) - 0.08 * var(--stack-depth) );
+}
+
+/* Alternate rotation directions for the messy polaroid pile effect */
+.skiper34-card:nth-child(even) {
+  --rot-stack: calc( 3deg * var(--stack-depth) );
+}
+.skiper34-card:nth-child(odd) {
+  --rot-stack: calc( -3deg * var(--stack-depth) );
+}
+
+.skiper34-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;

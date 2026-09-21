@@ -170,24 +170,7 @@ contactForm?.addEventListener('submit', async (e) => {
   }
 });
 
-// Countdown to PIXELCRAFT 2026 (Sept 19)
-const countdownEl = document.getElementById('countdown');
-const target = new Date('2026-09-19T00:00:00');
-function tick() {
-  const diff = target - new Date();
-  const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
-  if (diff <= 0) {
-    if (countdownEl) countdownEl.textContent = 'PIXELCRAFT is live!';
-    set('cd-d', '0'); set('cd-h', '0'); set('cd-m', '0');
-    return;
-  }
-  const d = Math.floor(diff / 86400000);
-  const h = Math.floor(diff % 86400000 / 3600000);
-  const m = Math.floor(diff % 3600000 / 60000);
-  if (countdownEl) countdownEl.textContent = `${d}d ${h}h ${m}m to PIXELCRAFT`;
-  set('cd-d', d); set('cd-h', h); set('cd-m', m);
-}
-setInterval(tick, 30000); tick();
+// Countdown logic removed: PIXELCRAFT event has concluded.
 
 // ---- interactive set (Refero-inspired) ----
 const calmMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -230,7 +213,7 @@ if (!calmMotion) {
 
   // Scatter Cards Animation (Scroll-Linked)
   const scatterSections = document.querySelectorAll('.scatter-section');
-  if (!calmMotion && scatterSections.length > 0) {
+  if (scatterSections.length > 0) {
     window.addEventListener('scroll', () => {
       scatterSections.forEach(scatterSection => {
         const rect = scatterSection.getBoundingClientRect();
