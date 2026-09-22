@@ -74,27 +74,35 @@ function addScrollListener(target, type, listener, options) {
 
 // ── Vanta Interactive 3D Birds ──────────────────────────────────────────────
 if (typeof VANTA !== 'undefined') {
-  VANTA.BIRDS({
-    el: "#vanta-bg",
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    backgroundColor: 0x171721, // onyx
-    color1: 0x5266eb, // cobalt
-    color2: 0x3d4fd6, // dark cobalt
-    colorMode: "variance",
-    birdSize: 1.40,
-    wingSpan: 26.00,
-    speedLimit: 4.50,
-    separation: 40.00,
-    alignment: 20.00,
-    cohesion: 20.00,
-    quantity: 4.0 // Elegant quantity, not too distracting
-  });
+  const initVanta = () => {
+    VANTA.BIRDS({
+      el: "#vanta-bg",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      backgroundColor: 0x171721, // onyx
+      color1: 0x5266eb, // cobalt
+      color2: 0x3d4fd6, // dark cobalt
+      colorMode: "variance",
+      birdSize: 1.40,
+      wingSpan: 26.00,
+      speedLimit: 4.50,
+      separation: 40.00,
+      alignment: 20.00,
+      cohesion: 20.00,
+      quantity: 4.0
+    });
+  };
+  
+  if (window.requestIdleCallback) {
+    window.requestIdleCallback(initVanta, { timeout: 2000 });
+  } else {
+    setTimeout(initVanta, 500);
+  }
 }
 
 // Mobile nav
