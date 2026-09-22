@@ -27,7 +27,7 @@ function addScrollListener(target, type, listener, options) {
 (function () {
   const bot = document.getElementById('trailBot');
   // Disable on touch devices
-  if (!bot || window.matchMedia('(pointer: coarse)').matches) return;
+  if (!bot || window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 768) return;
 
   let mouseX = window.innerWidth / 2;
   let mouseY = window.innerHeight / 2;
@@ -72,38 +72,47 @@ function addScrollListener(target, type, listener, options) {
   requestAnimationFrame(tick);
 })();
 
-// ── Vanta Interactive 3D Birds ──────────────────────────────────────────────
-if (typeof VANTA !== 'undefined') {
-  const initVanta = () => {
-    VANTA.BIRDS({
-      el: "#vanta-bg",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 1.00,
-      backgroundColor: 0x171721, // onyx
-      color1: 0x5266eb, // cobalt
-      color2: 0x3d4fd6, // dark cobalt
-      colorMode: "variance",
-      birdSize: 1.40,
-      wingSpan: 26.00,
-      speedLimit: 4.50,
-      separation: 40.00,
-      alignment: 20.00,
-      cohesion: 20.00,
-      quantity: 4.0
-    });
-  };
+
+// ── Vanta Interactive 3D Birds (Dynamic Load for Desktop only) ──────────────
+if (window.innerWidth >= 768) {
+  // Load Three.js then Vanta
+  const threeScript = document.createElement('script');
+  threeScript.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js";
+  document.body.appendChild(threeScript);
   
-  if (window.requestIdleCallback) {
-    window.requestIdleCallback(initVanta, { timeout: 2000 });
-  } else {
-    setTimeout(initVanta, 500);
-  }
+  threeScript.onload = () => {
+    const vantaScript = document.createElement('script');
+    vantaScript.src = "https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js";
+    document.body.appendChild(vantaScript);
+    
+    vantaScript.onload = () => {
+      if (typeof VANTA !== 'undefined') {
+        VANTA.BIRDS({
+          el: "#vanta-bg",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00,
+          backgroundColor: 0x171721, // onyx
+          color1: 0x5266eb, // cobalt
+          color2: 0x3d4fd6, // dark cobalt
+          colorMode: "variance",
+          birdSize: 1.40,
+          wingSpan: 26.00,
+          speedLimit: 4.50,
+          separation: 40.00,
+          alignment: 20.00,
+          cohesion: 20.00,
+          quantity: 4.0
+        });
+      }
+    };
+  };
 }
+
 
 // Mobile nav
 const menuBtn = document.getElementById('menuBtn');
@@ -401,7 +410,7 @@ if (!calmMotion) {
       this.chars = '!<>-_\\\\/[]{}—=+*^?#________';
       this.originalHtml = el.innerHTML;
       // Strip HTML tags for the scrambling calculation
-      this.originalText = el.innerText || el.textContent;
+      this.originalText = el.textContent;
       this.update = this.update.bind(this);
     }
     scramble() {
@@ -465,6 +474,7 @@ if (!calmMotion) {
   }
 
   // --- Osmo-style Ambient Cursor Glow ---
+if (window.innerWidth >= 768 && window.matchMedia('(pointer: fine)').matches) {
   const orb = document.createElement('div');
   orb.className = 'ambient-glow';
   document.body.appendChild(orb);
@@ -482,6 +492,7 @@ if (!calmMotion) {
     requestAnimationFrame(renderOrb);
   }
   renderOrb();
+}
 }
 
 // FAQ accordion (single-open)
