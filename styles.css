@@ -440,7 +440,7 @@ h2.reveal.in { filter: none; }
 @keyframes shimmer { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
 
 /* filters */
-.filters { display: flex; gap: 8px; flex-wrap: wrap; }
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
 .chip {
   border: 1px solid var(--slate); background: transparent; color: var(--ash);
   padding: 10px 20px; border-radius: var(--radius-nav); cursor: pointer;
