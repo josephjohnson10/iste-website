@@ -709,8 +709,8 @@ h2.reveal.in { filter: none; }
     top: 55% !important;
   }
 
-  .arch-container { height: 320px; }
-  .arch-wheel { top: 80px; width: 600px; height: 600px; }
+  .arch-container { height: 340px; }
+  .arch-wheel { top: 120px; width: 600px; height: 600px; }
   .arch-item {
     width: 200px; height: 140px;
     margin-top: -70px; margin-left: -100px;
@@ -718,8 +718,8 @@ h2.reveal.in { filter: none; }
   }
 }
 @media (max-width: 600px) {
-  .arch-container { height: 260px; }
-  .arch-wheel { top: 60px; width: 440px; height: 440px; }
+  .arch-container { height: 280px; }
+  .arch-wheel { top: 90px; width: 440px; height: 440px; }
   .arch-item {
     width: 160px; height: 110px;
     margin-top: -55px; margin-left: -80px;
@@ -727,8 +727,8 @@ h2.reveal.in { filter: none; }
   }
 }
 @media (max-width: 400px) {
-  .arch-container { height: 220px; }
-  .arch-wheel { top: 40px; width: 360px; height: 360px; }
+  .arch-container { height: 260px; }
+  .arch-wheel { top: 70px; width: 360px; height: 360px; }
   .arch-item {
     width: 140px; height: 95px;
     margin-top: -47.5px; margin-left: -70px;
