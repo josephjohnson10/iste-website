@@ -1,3 +1,28 @@
+
+// Global Scroll Manager to prevent layout thrashing
+const _scrollListeners = [];
+let _isScrolling = false;
+window.addEventListener('scroll', (e) => {
+  if (!_isScrolling) {
+    window.requestAnimationFrame(() => {
+      _scrollListeners.forEach(fn => fn(e));
+      _isScrolling = false;
+    });
+    _isScrolling = true;
+  }
+}, { passive: true });
+
+function addScrollListener(target, type, listener, options) {
+    if (type === 'scroll' && (target === window || target === document)) {
+        // If the listener is an arrow function or normal function, we push it
+        // Note: we ignore options for our global manager since it's already passive
+        _scrollListeners.push(listener);
+    } else {
+        // Fallback (shouldn't really hit this with our replacements)
+        target.addEventListener(type, listener, options);
+    }
+}
+
 // ── Trailing Bot ────────────────────────────────────────────────────────────
 (function () {
   const bot = document.getElementById('trailBot');
@@ -80,7 +105,7 @@ navLinks?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => n
 
 // Scroll progress bar
 const progress = document.getElementById('scrollProgress');
-addEventListener('scroll', () => {
+addScrollListener(window, 'scroll', () => {
   if (!progress) return;
   const max = document.documentElement.scrollHeight - innerHeight;
   progress.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
@@ -214,7 +239,7 @@ if (!calmMotion) {
   // Scatter Cards Animation (Scroll-Linked)
   const scatterSections = document.querySelectorAll('.scatter-section');
   if (scatterSections.length > 0) {
-    window.addEventListener('scroll', () => {
+    addScrollListener(window, 'scroll', () => {
       scatterSections.forEach(scatterSection => {
         const rect = scatterSection.getBoundingClientRect();
         let progress = 0;
@@ -240,7 +265,7 @@ if (!calmMotion) {
   if (teamSection && teamCards.length > 0 && !calmMotion) {
     const totalCards = teamCards.length;
     
-    window.addEventListener('scroll', () => {
+    addScrollListener(window, 'scroll', () => {
       const rect = teamSection.getBoundingClientRect();
       const maxScroll = rect.height - window.innerHeight;
       
@@ -463,7 +488,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
 // Navigation hiding removed per user request: remains sticky always
 const navBar = document.querySelector('.nav');
 let lastY = scrollY;
-addEventListener('scroll', () => {
+addScrollListener(window, 'scroll', () => {
   lastY = scrollY;
 }, { passive: true });
 const spyLinks = document.querySelectorAll('#navLinks a[href^="#"]');
@@ -491,7 +516,7 @@ if (!calmMotion) {
   const plxCopy = document.querySelector('.hero-copy');
   const plxVis = document.querySelector('.hero-visual');
   let plxTick = false;
-  addEventListener('scroll', () => {
+  addScrollListener(window, 'scroll', () => {
     if (plxTick) return;
     plxTick = true;
     requestAnimationFrame(() => {
@@ -517,7 +542,7 @@ if (!calmMotion) {
 
 // Back-to-top
 const toTop = document.getElementById('toTop');
-addEventListener('scroll', () => {
+addScrollListener(window, 'scroll', () => {
   toTop?.classList.toggle('show', scrollY > 600);
 }, { passive: true });
 toTop?.addEventListener('click', () => scrollTo({ top: 0, behavior: calmMotion ? 'auto' : 'smooth' }));
@@ -555,7 +580,7 @@ const aboutCsaSection = document.querySelector('.about-csa-section');
 const csaTrack = document.getElementById('csaTrack');
 
 if (aboutCsaSection && csaTrack) {
-  window.addEventListener('scroll', () => {
+  addScrollListener(window, 'scroll', () => {
     const rect = aboutCsaSection.getBoundingClientRect();
     const maxScroll = aboutCsaSection.offsetHeight - window.innerHeight;
     
