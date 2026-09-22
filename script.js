@@ -410,7 +410,7 @@ if (!calmMotion) {
       this.chars = '!<>-_\\\\/[]{}—=+*^?#________';
       this.originalHtml = el.innerHTML;
       // Strip HTML tags for the scrambling calculation
-      this.originalText = el.textContent;
+      this.originalText = el.innerText || el.textContent;
       this.update = this.update.bind(this);
     }
     scramble() {
